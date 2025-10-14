@@ -16,6 +16,9 @@ dependencies:
     version: 7.9.4(react-dom@19.2.0)(react@19.2.0)
 
 devDependencies:
+  '@eslint/js':
+    specifier: ^9.37.0
+    version: 9.37.0
   '@types/node':
     specifier: ^24.7.2
     version: 24.7.2
@@ -43,6 +46,9 @@ devDependencies:
   eslint:
     specifier: ^9.37.0
     version: 9.37.0
+  globals:
+    specifier: ^16.4.0
+    version: 16.4.0
   html-webpack-plugin:
     specifier: ^5.6.4
     version: 5.6.4(webpack@5.102.1)
@@ -55,6 +61,9 @@ devDependencies:
   typescript:
     specifier: ^5.9.3
     version: 5.9.3
+  typescript-eslint:
+    specifier: ^8.46.1
+    version: 8.46.1(eslint@9.37.0)(typescript@5.9.3)
   webpack:
     specifier: ^5.102.1
     version: 5.102.1(webpack-cli@6.0.1)
@@ -1754,6 +1763,11 @@ packages:
     engines: {node: '>=18'}
     dev: true
 
+  /globals@16.4.0:
+    resolution: {integrity: sha512-ob/2LcVVaVGCYN+r14cnwnoDPUufjiYgSqRhiFD0Q1iI4Odora5RE8Iv1D24hAz5oMophRGkGz+yuvQmmUMnMw==}
+    engines: {node: '>=18'}
+    dev: true
+
   /gopd@1.2.0:
     resolution: {integrity: sha512-ZUKRh6/kUFoAiTAtTYPZJ3hw9wNxx+BIBOijnlG9PnrJsCcSjs1wyyD6vJpaYtgnzDrKYRSqf3OO6Rfa93xsRg==}
     engines: {node: '>= 0.4'}
@@ -3143,6 +3157,23 @@ packages:
     dependencies:
       media-typer: 0.3.0
       mime-types: 2.1.35
+    dev: true
+
+  /typescript-eslint@8.46.1(eslint@9.37.0)(typescript@5.9.3):
+    resolution: {integrity: sha512-VHgijW803JafdSsDO8I761r3SHrgk4T00IdyQ+/UsthtgPRsBWQLqoSxOolxTpxRKi1kGXK0bSz4CoAc9ObqJA==}
+    engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+    peerDependencies:
+      eslint: ^8.57.0 || ^9.0.0
+      typescript: '>=4.8.4 <6.0.0'
+    dependencies:
+      '@typescript-eslint/eslint-plugin': 8.46.1(@typescript-eslint/parser@8.46.1)(eslint@9.37.0)(typescript@5.9.3)
+      '@typescript-eslint/parser': 8.46.1(eslint@9.37.0)(typescript@5.9.3)
+      '@typescript-eslint/typescript-estree': 8.46.1(typescript@5.9.3)
+      '@typescript-eslint/utils': 8.46.1(eslint@9.37.0)(typescript@5.9.3)
+      eslint: 9.37.0
+      typescript: 5.9.3
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /typescript@5.9.3:
