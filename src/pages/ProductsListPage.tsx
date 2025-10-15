@@ -3,6 +3,7 @@ import { useQuery } from "@tanstack/react-query"
 import { getProducts } from "@/api/products"
 import { qk } from "@/api/keys"
 import type { ProductListItem } from "@/types/product"
+import { Link } from "react-router-dom"
 // import ProductCard from '@/features/products/components/ProductCard';
 
 function useDebounce(value: string, delay = 350) {
@@ -55,6 +56,17 @@ export default function ProductsListPage() {
         {Array.isArray(data) && data.length ? (
           data.slice(0, 20).map((p: ProductListItem, i: number) => (
             <div key={i} style={{ border: "1px solid #ccc", padding: "16px", borderRadius: "8px" }}>
+              <Link
+                to={`/products/${p.id}`}
+                aria-label={`Ver ${p.brand} ${p.name}`}
+                style={{
+                  position: "absolute",
+                  inset: 0,
+                  zIndex: 1,
+                  // para accesibilidad con teclado:
+                  display: "block",
+                }}
+              />
               <h3>{p.name}</h3>
               <p>
                 <strong>Brand:</strong> {p.brand}
