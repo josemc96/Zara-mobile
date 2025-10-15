@@ -1,34 +1,41 @@
+// src/api/products.ts
 import { request } from "@/api/http"
-import type { Product, ProductListResponse } from "@/types/product"
+import type { Product, ProductListItem, ProductListResponse } from "@/types/product"
 
-/**
- * Obtiene el listado de productos con búsqueda y límite.
- * - q: texto a buscar en nombre/marca (opcional)
- * - limit: número de items a devolver (por defecto 20)
- * Devuelve { items, total } según el contrato de la API.
- */
-export function getProducts(
+// Posibles formas crudas que devuelve la API hoy
+type RawList = ProductListItem[] // ← array plano
+type RawEnvelope = { items: ProductListItem[]; total?: number } // ← { items, total } opcional
+
+export async function getProducts(
   q?: string,
   limit = 20,
-  options?: { signal?: AbortSignal } // opcional: permite cancelar desde la UI
-) {
+  options?: { signal?: AbortSignal }
+): Promise<ProductListResponse> {
   const qs = new URLSearchParams()
   if (q) qs.set("q", q)
   if (limit) qs.set("limit", String(limit))
 
-  const query = qs.toString() // "q=pixel&limit=20"
-  const path = `/products${query ? `?${query}` : ""}`
+  const path = `/products${qs.toString() ? `?${qs.toString()}` : ""}`
 
-  // Pasamos la signal si la UI nos la dio (no es obligatorio)
-  return request<ProductListResponse>(path, { signal: options?.signal })
+  // Pedimos lo crudo sin asumir forma:
+  const raw = await request<RawList | RawEnvelope>(path, { signal: options?.signal })
+
+  // Normalizamos a { items, total }
+  const items: ProductListItem[] = Array.isArray(raw)
+    ? raw
+    : Array.isArray(raw.items)
+    ? raw.items
+    : []
+
+  const total: number = Array.isArray(raw)
+    ? raw.length
+    : typeof raw.total === "number"
+    ? raw.total
+    : items.length
+
+  return { items, total }
 }
 
-/**
- * Obtiene el detalle de un producto por id.
- * Devuelve un Product con:
- * - specs, colorOptions, storageOptions (precio final por capacidad)
- * - similarProducts (ya viene en el detalle)
- */
 export function getProduct(id: string, options?: { signal?: AbortSignal }) {
   if (!id) throw new Error('getProduct: "id" es requerido')
   return request<Product>(`/products/${id}`, { signal: options?.signal })
