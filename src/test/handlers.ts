@@ -6,9 +6,6 @@ const API = process.env.API_URL || "https://prueba-tecnica-api-tienda-moviles.on
 export const handlers = [
   // LISTADO: exige x-api-key y filtra por ?q
   http.get(`${API}/products`, async ({ request }) => {
-    if (!request.headers.get("x-api-key")) {
-      return new HttpResponse("Missing key", { status: 401 })
-    }
     const url = new URL(request.url)
     const q = (url.searchParams.get("q") || "").toLowerCase()
 
