@@ -2,10 +2,73 @@
 <html lang="es">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>Zara Mobile</title>
+    <meta
+      name="description"
+      content="Catálogo de móviles, detalles y carrito. Prueba técnica con React + TypeScript."
+    />
+    <meta name="theme-color" content="#111827" />
+
+    <!-- Favicons / PWA (coloca los archivos en /public) -->
+    <!-- <link rel="icon" href="/favicon.ico" sizes="any" /> -->
+    <!-- <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.json" /> -->
+
+    <!-- Open Graph (opcional) -->
+    <!-- <meta property="og:title" content="Zara Mobile" />
+    <meta property="og:description" content="Explora, filtra y compra móviles." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="/" />
+    <meta property="og:image" content="/og-image.png" /> -->
+
+    <!-- CSS mínimo para evitar salto visual -->
+    <style>
+      html,
+      body,
+      #root {
+        height: 100%;
+      }
+      body {
+        margin: 0;
+      }
+      .splash {
+        height: 100%;
+        display: grid;
+        place-items: center;
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans,
+          sans-serif;
+        opacity: 0.9;
+      }
+      .spinner {
+        width: 36px;
+        height: 36px;
+        border: 3px solid #555;
+        border-top-color: #fff;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin: 12px auto;
+      }
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
   </head>
   <body>
-    <div id="root"></div>
+    <noscript>Necesitas habilitar JavaScript para usar esta aplicación.</noscript>
+
+    <div id="root">
+      <!-- Splash mientras React se monta -->
+      <div class="splash">
+        <div>
+          <div class="spinner"></div>
+          <div>Cargando Zara Mobile…</div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
