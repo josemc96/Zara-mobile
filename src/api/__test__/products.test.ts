@@ -14,27 +14,25 @@ describe("services: products", () => {
   })
 
   test("getProducts aplica q y limit", async () => {
-    // Mock response for empty query
-    mockRequest.mockResolvedValueOnce({
-      items: [
-        { id: "1", brand: "Google", name: "Pixel 8", basePrice: 699, imageUrl: "pixel.png" },
-        { id: "2", brand: "Apple", name: "iPhone 15", basePrice: 999, imageUrl: "iphone.png" },
-      ],
-      total: 2,
-    })
+    // Mock response for empty query - API returns array directly
+    mockRequest.mockResolvedValueOnce([
+      { id: "1", brand: "Google", name: "Pixel 8", basePrice: 699, imageUrl: "pixel.png" },
+      { id: "2", brand: "Apple", name: "iPhone 15", basePrice: 999, imageUrl: "iphone.png" },
+    ])
 
-    // Mock response for "pixel" query
-    mockRequest.mockResolvedValueOnce({
-      items: [{ id: "1", brand: "Google", name: "Pixel 8", basePrice: 699, imageUrl: "pixel.png" }],
-      total: 1,
-    })
+    // Mock response for "pixel" query - API returns array directly
+    mockRequest.mockResolvedValueOnce([
+      { id: "1", brand: "Google", name: "Pixel 8", basePrice: 699, imageUrl: "pixel.png" },
+    ])
 
     const r1 = await getProducts("", 20)
-    expect(r1.total).toBe(2)
+    expect(Array.isArray(r1)).toBe(true)
+    expect(r1.length).toBe(2)
 
     const r2 = await getProducts("pixel", 20)
-    expect(r2.total).toBe(1)
-    expect(r2.items[0].name).toMatch(/pixel/i)
+    expect(Array.isArray(r2)).toBe(true)
+    expect(r2.length).toBe(1)
+    expect(r2[0].name).toMatch(/pixel/i)
   })
 
   test("getProduct 1 devuelve opciones de color y almacenamiento con precio final", async () => {

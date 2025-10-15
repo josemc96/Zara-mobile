@@ -20,16 +20,17 @@ export default function ProductsListPage() {
   const term = useDebounce(rawTerm, 350)
   const deferredTerm = useDeferredValue(term)
 
-  const { data, isFetching, isError } = useQuery({
-    queryKey: [qk.products, { q: deferredTerm, limit: 20 }],
-    queryFn: ({ signal }) => getProducts(deferredTerm, 20, { signal }),
-    retry: 0,
+  const {
+    data = [],
+    isFetching,
+    isError,
+  } = useQuery<ProductListItem[]>({
+    queryKey: qk.products(deferredTerm, 20),
+    queryFn: ({ signal }) => getProducts(deferredTerm, 20, 1, { signal }),
+    retry: 1,
     placeholderData: (prev) => prev,
     staleTime: 10_000,
   })
-
-  const items: ProductListItem[] = data?.items ?? []
-  const total = data?.total ?? 0
 
   return (
     <section>
@@ -43,14 +44,13 @@ export default function ProductsListPage() {
           style={{ padding: 8, flex: 1 }}
         />
         <p role="status" style={{ margin: 0 }}>
-          {isFetching ? "Buscando…" : `${total} resultados`}
+          {isFetching ? "Buscando…" : `${data.length} resultados`}
         </p>
       </header>
 
-      {isError && <p role="alert">No se pudo cargar el listado ahora mismo.</p>}
+      {isError && <p role="alert">No se pudo cargar el listado.</p>}
 
       <div
-        className="grid"
         style={{
           display: "grid",
           gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))",
@@ -58,10 +58,10 @@ export default function ProductsListPage() {
           padding: 20,
         }}
       >
-        {items.length
-          ? items.slice(0, 20).map((p, i) => (
+        {data.length
+          ? data.slice(0, 20).map((p, i) => (
               <Link
-                key={`${p.id}-${i}`} // conserva duplicados y evita colisión de keys
+                key={`${p.id}-${i}`} // mantiene duplicados sin warning
                 to={`/products/${p.id}`}
                 aria-label={`Ver ${p.brand} ${p.name}`}
                 style={{
@@ -73,19 +73,10 @@ export default function ProductsListPage() {
                   textDecoration: "none",
                   color: "inherit",
                 }}
-                className="card"
               >
-                {p.imageUrl && (
-                  <img
-                    src={p.imageUrl}
-                    alt={p.name}
-                    loading="lazy"
-                    style={{ width: "100%", height: 160, objectFit: "cover", borderRadius: 8 }}
-                  />
-                )}
-                <strong style={{ fontSize: 16, lineHeight: 1.2 }}>{p.name}</strong>
-                <span style={{ color: "#6b7280", fontSize: 14 }}>{p.brand}</span>
-                <span style={{ fontWeight: 600 }}>€{p.basePrice}</span>
+                <strong>{p.name}</strong>
+                <span>{p.brand}</span>
+                <span>€{p.basePrice}</span>
                 <small style={{ color: "#9ca3af" }}>ID: {p.id}</small>
               </Link>
             ))
