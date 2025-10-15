@@ -1,4 +1,4 @@
-import { formatEUR } from "../money"
+import { formatEUR } from "@/utils/money"
 
 test("formatEUR formatea cantidades en EUR (es-ES)", () => {
   const out = formatEUR(799)

@@ -4,8 +4,8 @@ import {
   getPriceForStorage,
   capacities,
   colors,
-} from "../product-mappers"
-import type { Product } from "../../types/product"
+} from "@/utils/product-mappers"
+import type { Product } from "@/types/product"
 
 const product: Product = {
   id: "1",

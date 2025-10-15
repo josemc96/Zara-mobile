@@ -1,11 +1,11 @@
-import { getProducts, getProduct } from "../products"
+import { getProducts, getProduct } from "@/api/products"
 
 // Mock the http module
-jest.mock("../http", () => ({
+jest.mock("@/api/http", () => ({
   request: jest.fn(),
 }))
 
-import { request } from "../http"
+import { request } from "@/api/http"
 const mockRequest = request as jest.MockedFunction<typeof request>
 
 describe("services: products", () => {

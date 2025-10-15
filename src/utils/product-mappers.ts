@@ -1,4 +1,4 @@
-import { Product } from "../types/product"
+import { Product } from "@/types/product"
 
 /** Devuelve la primera imagen disponible como “default” */
 export const getDefaultImage = (p: Product) => p.colorOptions?.[0]?.imageUrl ?? ""

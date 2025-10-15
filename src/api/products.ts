@@ -1,5 +1,5 @@
-import { request } from "./http"
-import type { Product, ProductListResponse } from "../types/product"
+import { request } from "@/api/http"
+import type { Product, ProductListResponse } from "@/types/product"
 
 /**
  * Obtiene el listado de productos con búsqueda y límite.

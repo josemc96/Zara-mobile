@@ -1,4 +1,4 @@
-import { request, HttpError } from "../http"
+import { request, HttpError } from "@/api/http"
 
 // Mock fetch globally
 global.fetch = jest.fn()
