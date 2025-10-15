@@ -3,7 +3,8 @@ import { createRoot } from "react-dom/client"
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import AppRouter from "./routes/Router"
 // import { GlobalStyle } from './components/style/generalStyle';
-
+import { Provider } from "react-redux"
+import { store } from "@/store"
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
@@ -22,9 +23,11 @@ const root = createRoot(container)
 
 root.render(
   <React.StrictMode>
-    <QueryClientProvider client={queryClient}>
-      {/* <GlobalStyle /> */}
-      <AppRouter />
-    </QueryClientProvider>
+    <Provider store={store}>
+      <QueryClientProvider client={queryClient}>
+        {/* <GlobalStyle /> */}
+        <AppRouter />
+      </QueryClientProvider>
+    </Provider>
   </React.StrictMode>
 )
