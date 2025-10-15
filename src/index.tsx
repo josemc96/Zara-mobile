@@ -1,15 +1,19 @@
+// src/index.tsx
 import React from "react"
-import ReactDOM from "react-dom/client"
+import { createRoot } from "react-dom/client"
+import AppRouter from "./routes/Router"
+// import { GlobalStyle } from './components/style/generalStyle';
 
-const App = () => {
-  return (
-    <div>
-      <h1>Welcome to Zara Mobile</h1>
-      <p>Your React app is working!</p>
-    </div>
-  )
+const container = document.getElementById("root")
+if (!container) {
+  throw new Error("No se encontró el elemento #root en index.html")
 }
 
-const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement)
+const root = createRoot(container)
 
-root.render(<App />)
+root.render(
+  <React.StrictMode>
+    {/* <GlobalStyle /> */}
+    <AppRouter />
+  </React.StrictMode>
+)
