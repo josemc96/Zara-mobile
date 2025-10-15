@@ -53,11 +53,8 @@ export default function ProductsListPage() {
         }}
       >
         {Array.isArray(data) && data.length ? (
-          data.slice(0, 20).map((p: ProductListItem) => (
-            <div
-              key={p.id}
-              style={{ border: "1px solid #ccc", padding: "16px", borderRadius: "8px" }}
-            >
+          data.slice(0, 20).map((p: ProductListItem, i: number) => (
+            <div key={i} style={{ border: "1px solid #ccc", padding: "16px", borderRadius: "8px" }}>
               <h3>{p.name}</h3>
               <p>
                 <strong>Brand:</strong> {p.brand}
