@@ -1,7 +1,6 @@
 import React from "react"
 import { createRoot } from "react-dom/client"
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools"
 import AppRouter from "./routes/Router"
 // import { GlobalStyle } from './components/style/generalStyle';
 
@@ -26,7 +25,6 @@ root.render(
     <QueryClientProvider client={queryClient}>
       {/* <GlobalStyle /> */}
       <AppRouter />
-      <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   </React.StrictMode>
 )
