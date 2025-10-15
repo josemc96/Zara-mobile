@@ -56,27 +56,18 @@ export default function ProductsListPage() {
         {Array.isArray(data) && data.length ? (
           data.slice(0, 20).map((p: ProductListItem, i: number) => (
             <div key={i} style={{ border: "1px solid #ccc", padding: "16px", borderRadius: "8px" }}>
-              <Link
-                to={`/products/${p.id}`}
-                aria-label={`Ver ${p.brand} ${p.name}`}
-                style={{
-                  position: "absolute",
-                  inset: 0,
-                  zIndex: 1,
-                  // para accesibilidad con teclado:
-                  display: "block",
-                }}
-              />
-              <h3>{p.name}</h3>
-              <p>
-                <strong>Brand:</strong> {p.brand}
-              </p>
-              <p>
-                <strong>Price:</strong> €{p.basePrice}
-              </p>
-              <p>
-                <strong>ID:</strong> {p.id}
-              </p>
+              <Link to={`/products/${p.id}`} aria-label={`Ver ${p.brand} ${p.name}`}>
+                <h3>{p.name}</h3>
+                <p>
+                  <strong>Brand:</strong> {p.brand}
+                </p>
+                <p>
+                  <strong>Price:</strong> €{p.basePrice}
+                </p>
+                <p>
+                  <strong>ID:</strong> {p.id}
+                </p>
+              </Link>
             </div>
           ))
         ) : (
