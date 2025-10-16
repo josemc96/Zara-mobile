@@ -1,27 +1,16 @@
 // src/routes/Router.tsx
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { lazy, Suspense } from "react"
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import Layout from "./Layout"
+import GlobalProvider from "@/GlobalProvider"
 
 const ProductsListPage = lazy(() => import("@/pages/ProductsListPage"))
 const ProductDetailPage = lazy(() => import("@/pages/ProductDetailPage"))
 const CartPage = lazy(() => import("@/pages/CartPage"))
 
-//TODO DESPUES DE CREAR EL CONTEXT/PROVIDER DE REDUX METER EN UN GENERAL PROVIDER  LOS 2
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      retry: 2, // reintenta fallos puntuales
-      staleTime: 30_000, // 30s de datos “frescos”
-      refetchOnWindowFocus: false, // no refrescar al volver a la pestaña
-    },
-  },
-})
-
 export default function AppRouter() {
   return (
-    <QueryClientProvider client={queryClient}>
+    <GlobalProvider>
       <BrowserRouter>
         <Suspense fallback={<p>Cargando…</p>}>
           <Routes>
@@ -33,6 +22,6 @@ export default function AppRouter() {
           </Routes>
         </Suspense>
       </BrowserRouter>
-    </QueryClientProvider>
+    </GlobalProvider>
   )
 }
