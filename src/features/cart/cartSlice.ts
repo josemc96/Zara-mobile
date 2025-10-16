@@ -63,4 +63,7 @@ export const selectCartItems = (s: { cart: CartState }) => Object.values(s.cart.
 export const selectCartCount = (s: { cart: CartState }) =>
   Object.values(s.cart.items).reduce((acc, it) => acc + it.qty, 0)
 
+export const selectCartTotal = (s: { cart: CartState }) =>
+  Object.values(s.cart.items).reduce((acc, it) => acc + it.unitPrice * it.qty, 0)
+
 export default cartSlice.reducer
