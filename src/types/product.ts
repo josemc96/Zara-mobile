@@ -56,3 +56,10 @@ export interface ProductListResponse {
   items: ProductListItem[]
   total: number
 }
+export type ProductCardProps = Pick<
+  ProductListItem,
+  "id" | "brand" | "name" | "basePrice" | "imageUrl"
+> & {
+  imageUrl: string // si el listado no la trae, la añades aquí
+  onClick?: () => void
+}

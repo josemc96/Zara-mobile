@@ -1,10 +1,11 @@
-// src/pages/ProductsListPage.tsx
 import { useEffect, useState, useDeferredValue } from "react"
 import { useQuery } from "@tanstack/react-query"
 import { getProducts } from "@/api/products"
 import { qk } from "@/api/keys"
 import type { ProductListItem } from "@/types/product"
-import { Link } from "react-router-dom"
+
+import ProductCard from "@/features/products/components/ProductCard"
+import { Page, HeaderBar, SearchInput, Status, Grid, Cell } from "./ProductsList.styles"
 
 function useDebounce(value: string, delay = 350) {
   const [v, setV] = useState(value)
@@ -33,55 +34,36 @@ export default function ProductsListPage() {
   })
 
   return (
-    <section>
-      <header style={{ display: "flex", gap: 12, alignItems: "center" }}>
-        <input
-          type="search"
+    <Page>
+      <HeaderBar>
+        <SearchInput
           placeholder="Buscar móviles…"
           aria-label="Buscar móviles"
           value={rawTerm}
           onChange={(e) => setRawTerm(e.target.value)}
-          style={{ padding: 8, flex: 1 }}
         />
-        <p role="status" style={{ margin: 0 }}>
-          {isFetching ? "Buscando…" : `${data.length} resultados`}
-        </p>
-      </header>
+        <Status role="status">{isFetching ? "Buscando…" : `${data.length} resultados`}</Status>
+      </HeaderBar>
 
       {isError && <p role="alert">No se pudo cargar el listado.</p>}
 
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))",
-          gap: 16,
-          padding: 20,
-        }}
-      >
+      <Grid>
         {data.length
           ? data.slice(0, 20).map((p, i) => (
-              <Link
-                key={`${p.id}-${i}`} // mantiene duplicados sin warning
-                to={`/products/${p.id}`}
-                aria-label={`Ver ${p.brand} ${p.name}`}
-                style={{
-                  display: "grid",
-                  gap: 8,
-                  border: "1px solid #e5e7eb",
-                  borderRadius: 12,
-                  padding: 12,
-                  textDecoration: "none",
-                  color: "inherit",
-                }}
-              >
-                <strong>{p.name}</strong>
-                <span>{p.brand}</span>
-                <span>€{p.basePrice}</span>
-                <small style={{ color: "#9ca3af" }}>ID: {p.id}</small>
-              </Link>
+              <Cell key={`${p.id}-${i}`}>
+                {" "}
+                {/* evita colisión si llegan ids duplicados */}
+                <ProductCard
+                  id={p.id}
+                  brand={p.brand}
+                  name={p.name}
+                  basePrice={p.basePrice}
+                  imageUrl={p.imageUrl}
+                />
+              </Cell>
             ))
           : !isFetching && <p>No products found</p>}
-      </div>
-    </section>
+      </Grid>
+    </Page>
   )
 }
