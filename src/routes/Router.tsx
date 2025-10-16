@@ -6,7 +6,7 @@ import Layout from "./Layout"
 
 const ProductsListPage = lazy(() => import("@/pages/ProductsListPage"))
 const ProductDetailPage = lazy(() => import("@/pages/ProductDetailPage"))
-const CartPage = lazy(() => import("@/pages/CartPage"))
+const CartPage = lazy(() => import("@/pages/cart/CartPage"))
 
 //TODO DESPUES DE CREAR EL CONTEXT/PROVIDER DE REDUX METER EN UN GENERAL PROVIDER  LOS 2
 const queryClient = new QueryClient({
