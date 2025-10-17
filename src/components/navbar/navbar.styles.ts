@@ -35,19 +35,18 @@ export const LeftLink = styled.span`
 
 export const RightLink = styled.span`
   display: inline-flex;
-  align-items: center;
+  align-items: flex-end;
   gap: 6px;
-  font-size: 14px;
+  padding-top: 4px;
+  padding-bottom: 4px;
   cursor: pointer;
 `
 
 export const Badge = styled.span`
-  height: 16px;
   color: #000000;
   font-size: 16px;
   font-weight: 300;
-  line-height: 16px;
+  line-height: 1;
   letter-spacing: 0%;
   text-transform: uppercase;
-  text-align: center;
 `
