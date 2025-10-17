@@ -1,27 +1,40 @@
+// ProductCard.styles.ts
 import styled from "styled-components"
 import { Link } from "react-router-dom"
 import { media } from "@/styles/media"
 
 /* Contenedor raíz */
 export const Card = styled.article`
+  /* Variables por defecto */
+  --brand: #8c8c8c;
+  --name: #111111;
+  --price: #000000;
+
+  /* Fondo negro deslizante (0% = visible, 100% = oculto abajo) */
+  --bgY: 100%;
+
+  /* 🎛 Control de velocidad y easing del deslizamiento y colores */
+  --bgDur: 520ms; /* súbelo/bájalo para más lento/rápido */
+  --bgEase: cubic-bezier(0.22, 1, 0.36, 1);
+
   width: 100%;
-  background: #fff;
+  background: #fff; /* el “fondo negro” es una capa interna animada */
   border: 0.5px solid #000000;
   position: relative;
   overflow: hidden;
-  will-change: transform;
 
-  @media (prefers-reduced-motion: no-preference) {
-    transition: transform 160ms ease, box-shadow 160ms ease;
-  }
+  /* No movemos ni escalamos la tarjeta en hover */
 
   &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    /* Cambiamos variables; el ::before lee --bgY y sube */
+    --brand: #e6e6e6;
+    --name: #ffffff;
+    --price: #ffffff;
+    --bgY: 0%;
   }
 `
 
-/* Hacemos clickable toda la tarjeta */
+/* Área clicable y capa del fondo negro animado */
 export const ClickArea = styled(Link)`
   display: grid;
   grid-template-rows: auto 1fr;
@@ -29,15 +42,36 @@ export const ClickArea = styled(Link)`
   padding: 16px;
   color: inherit;
   text-decoration: none;
-  position: relative;
+  position: relative; /* referencia para ::before */
+
+  /* Capa del fondo negro que sube desde abajo */
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: #000; /* negro sólido */
+    transform: translateY(var(--bgY, 100%));
+    will-change: transform;
+    z-index: 0; /* por debajo de imagen y textos */
+
+    @media (prefers-reduced-motion: no-preference) {
+      transition: transform var(--bgDur) var(--bgEase);
+    }
+  }
 
   &:focus-visible {
     outline: 2px solid #111;
     outline-offset: -2px;
+
+    /* Mismo efecto que hover con teclado */
+    --brand: #e6e6e6;
+    --name: #ffffff;
+    --price: #ffffff;
+    --bgY: 0%;
   }
 `
 
-/* Imagen wrapper */
+/* Imagen (siempre por encima del fondo negro) */
 export const ImageWrap = styled.div`
   position: relative;
   width: 100%;
@@ -45,14 +79,10 @@ export const ImageWrap = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 1; /* encima del ::before */
 
-  ${media.md`
-    aspect-ratio: 1.19 / 1;
-  `}
-
-  ${media.lg`
-    aspect-ratio: 1.2 / 1;
-  `}
+  ${media.md` aspect-ratio: 1.19 / 1; `}
+  ${media.lg` aspect-ratio: 1.2 / 1; `}
 `
 
 export const Img = styled.img`
@@ -64,18 +94,11 @@ export const Img = styled.img`
   object-fit: contain;
   object-position: center;
 
-  ${media.md`
-    max-width: 200px;
-    max-height: 200px;
-  `}
-
-  ${media.lg`
-    max-width: 180px;
-    max-height: 180px;
-  `}
+  ${media.md` max-width: 200px; max-height: 200px; `}
+  ${media.lg` max-width: 180px; max-height: 180px; `}
 `
 
-/* Info de texto */
+/* Info de texto (por encima del fondo negro) */
 export const Info = styled.div`
   display: flex;
   flex-direction: row;
@@ -84,10 +107,8 @@ export const Info = styled.div`
   width: 100%;
   min-height: 31px;
   gap: 4px;
-
-  @media (prefers-reduced-motion: no-preference) {
-    transition: color 160ms ease;
-  }
+  position: relative;
+  z-index: 1; /* encima del ::before */
 `
 
 export const BrandNameWrapper = styled.div`
@@ -101,15 +122,23 @@ export const BrandNameWrapper = styled.div`
 export const Brand = styled.span`
   font-size: 10px;
   letter-spacing: 0.04em;
-  color: #8c8c8c;
+  color: var(--brand);
   text-transform: uppercase;
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition: color var(--bgDur) var(--bgEase);
+  }
 `
 
 export const Name = styled.h3`
   margin: 0;
   font-size: 14px;
   font-weight: 500;
-  color: #111;
+  color: var(--name);
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition: color var(--bgDur) var(--bgEase);
+  }
 `
 
 export const Price = styled.span`
@@ -121,43 +150,11 @@ export const Price = styled.span`
   letter-spacing: 0%;
   text-align: right;
   text-transform: capitalize;
-  color: #000000;
+  color: var(--price);
   white-space: nowrap;
   align-self: flex-end;
-`
-
-/* Velo negro que sube desde abajo en hover/focus */
-export const Overlay = styled.i`
-  pointer-events: none;
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.56) 35%, rgba(0, 0, 0, 0) 70%);
-  transform: translateY(100%);
-  opacity: 0;
 
   @media (prefers-reduced-motion: no-preference) {
-    transition: transform 220ms ease, opacity 220ms ease;
-  }
-
-  ${Card}:hover &,
-  ${ClickArea}:focus-visible & {
-    transform: translateY(0%);
-    opacity: 1;
-  }
-
-  /* cuando el overlay está visible, blanqueamos los textos */
-  ${Card}:hover ${Info},
-  ${ClickArea}:focus-visible ${Info} {
-    color: #fff;
-
-    ${Brand} {
-      color: #e6e6e6;
-    }
-    ${Name} {
-      color: #fff;
-    }
-    ${Price} {
-      color: #fff;
-    }
+    transition: color var(--bgDur) var(--bgEase);
   }
 `

@@ -10,7 +10,6 @@ import {
   Brand,
   Name,
   Price,
-  Overlay,
 } from "./ProductCard.styles"
 
 export default function ProductCard({ id, brand, name, basePrice, imageUrl }: ProductCardProps) {
@@ -28,9 +27,6 @@ export default function ProductCard({ id, brand, name, basePrice, imageUrl }: Pr
           </BrandNameWrapper>
           <Price>{basePrice} EUR</Price>
         </Info>
-
-        {/* velo negro que aparece desde abajo */}
-        <Overlay aria-hidden />
       </ClickArea>
     </Card>
   )
