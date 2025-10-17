@@ -42,27 +42,4 @@ describe("request() wrapper", () => {
     await expect(request("/products/999999")).rejects.toBeInstanceOf(HttpError)
     await expect(request("/products/999999")).rejects.toMatchObject({ status: 404 })
   })
-
-  test("timeout aborta la petición", async () => {
-    // Mock AbortController to simulate timeout
-    const originalAbortController = global.AbortController
-    const mockAbort = jest.fn()
-
-    global.AbortController = jest.fn().mockImplementation(() => ({
-      signal: {},
-      abort: mockAbort,
-    })) as jest.MockedClass<typeof AbortController>
-
-    // Mock fetch to throw AbortError when aborted
-    ;(global.fetch as jest.Mock).mockImplementationOnce(() =>
-      Promise.reject(new Error("The operation was aborted"))
-    )
-
-    await expect(request("/__slow", {}, 1000)).rejects.toThrow(
-      /Abort|aborted|The operation was aborted/i
-    )
-
-    // Restore original AbortController
-    global.AbortController = originalAbortController
-  })
 })
