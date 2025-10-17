@@ -5,16 +5,11 @@ import { media } from "@/styles/media"
 /* Contenedor raíz */
 export const Card = styled.article`
   width: 100%;
-  height: 344px;
   background: #fff;
   border: 0.5px solid #000000;
   position: relative;
   overflow: hidden;
   will-change: transform;
-
-  ${media.lg`
-    width: 344px;
-  `}
 
   @media (prefers-reduced-motion: no-preference) {
     transition: transform 160ms ease, box-shadow 160ms ease;
@@ -45,7 +40,7 @@ export const ClickArea = styled(Link)`
 /* Imagen wrapper */
 export const ImageWrap = styled.div`
   position: relative;
-  width: 329px;
+  width: 100%;
   height: 257px;
   display: flex;
   flex-direction: column;
@@ -53,12 +48,10 @@ export const ImageWrap = styled.div`
   align-items: center;
 
   ${media.md`
-    width: 345px;
     height: 290px;
   `}
 
   ${media.lg`
-    width: 312px;
     height: 257px;
   `}
 `
@@ -75,16 +68,8 @@ export const Info = styled.div`
   display: flex;
   flex-direction: column;
   gap: 8px;
-  width: 329px;
-  height: 31px;
-
-  ${media.md`
-    width: 345px;
-  `}
-
-  ${media.lg`
-    width: 312px;
-  `}
+  width: 100%;
+  min-height: 31px;
 
   @media (prefers-reduced-motion: no-preference) {
     transition: color 160ms ease;
