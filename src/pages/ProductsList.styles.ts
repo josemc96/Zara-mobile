@@ -4,18 +4,33 @@ import { media } from "@/styles/media"
 export const Page = styled.section`
   max-width: var(--container-max);
   margin: 0 auto;
-  padding: 0 var(--page-padding-x);
   display: grid;
-  gap: 16px;
+  gap: 24px;
+  padding-top: 24px;
+
+  ${media.md`
+    gap: 24px;
+  `}
+
+  ${media.lg`
+    gap: 48px;
+    padding-top: 48px;
+  `}
 `
 
 export const HeaderBar = styled.header`
   display: flex;
   align-items: center;
   gap: 12px;
-  padding-top: 16px;
+  padding: 12px 16px;
 
-  ${media.lg` padding-top: 24px; `}
+  ${media.md`
+    padding: 12px 40px;
+  `}
+
+  ${media.lg`
+    padding: 12px 100px;
+  `}
 `
 
 export const SearchInput = styled.input.attrs({ type: "search" })`
@@ -44,17 +59,20 @@ export const Status = styled.p`
 export const Grid = styled.div`
   display: grid;
   gap: var(--grid-gap);
+  padding: 0 16px;
 
   /* 1 columna en móvil */
   grid-template-columns: repeat(1, minmax(0, 1fr));
 
   /* 2 columnas en tablet (≥394px) */
   ${media.md`
+    padding: 0 40px;
     grid-template-columns: repeat(2, minmax(0, 1fr));
   `}
 
   /* 5 columnas en desktop (≥834px) */
   ${media.lg`
+    padding: 0 100px;
     grid-template-columns: repeat(5, minmax(0, 1fr));
   `}
 `
