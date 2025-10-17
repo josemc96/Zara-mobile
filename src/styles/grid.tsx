@@ -7,6 +7,10 @@ import { media } from "./media"
  * Cada vista usa: var(--grid-columns), var(--grid-gap), var(--page-padding-x).
  */
 const GridGlobals = createGlobalStyle`
+  * {
+    font-family:  Helvetica, Arial, sans-serif;
+  }
+
   :root {
     --container-max: 1920px;
 
