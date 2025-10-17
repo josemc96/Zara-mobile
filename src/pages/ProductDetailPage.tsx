@@ -6,6 +6,7 @@ import { qk } from "@/api/keys"
 import { getImageForColor, getPriceForStorage, capacities, colors } from "@/utils/product-mappers"
 import { useAppDispatch } from "@/store/hooks"
 import { addItem } from "@/features/cart/cartSlice"
+import { BackButton, BackArrow } from "./ProductDetailPage.styles"
 
 export default function ProductDetailPage() {
   const { id = "" } = useParams<{ id: string }>()
@@ -55,6 +56,10 @@ export default function ProductDetailPage() {
 
   return (
     <article>
+      <BackButton to="/" aria-label="Back to products">
+        <BackArrow aria-hidden />
+        BACK
+      </BackButton>
       {img && <img src={img} alt={`${product.name}${color ? " " + color : ""}`} />}
       <h1>{product.name}</h1>
 
