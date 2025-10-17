@@ -58,7 +58,7 @@ export const Status = styled.p`
 
 export const Grid = styled.div`
   display: grid;
-  gap: var(--grid-gap);
+  gap: 0;
   padding: 0 16px;
 
   /* 1 columna en móvil */
