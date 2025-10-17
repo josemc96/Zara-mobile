@@ -72,8 +72,19 @@ export const Img = styled.img`
 
 /* Info de texto */
 export const Info = styled.div`
-  display: grid;
-  gap: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 329px;
+  height: 31px;
+
+  ${media.md`
+    width: 345px;
+  `}
+
+  ${media.lg`
+    width: 312px;
+  `}
 
   @media (prefers-reduced-motion: no-preference) {
     transition: color 160ms ease;
