@@ -102,5 +102,14 @@ export const InfoContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 40px;
-  flex: 1;
+  width: 361px;
+
+  ${media.md`
+    width: 362px;
+  `}
+
+  ${media.lg`
+    width: 380px;
+    gap: 64px;
+  `}
 `
