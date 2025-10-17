@@ -20,8 +20,8 @@ export const Page = styled.section`
 
 export const HeaderBar = styled.header`
   display: flex;
-  align-items: center;
-  gap: 12px;
+  flex-direction: column;
+  gap: 24px;
   padding: 12px 16px;
 
   ${media.md`
@@ -34,15 +34,18 @@ export const HeaderBar = styled.header`
 `
 
 export const SearchInput = styled.input.attrs({ type: "search" })`
-  flex: 1;
-  padding: 10px 12px;
-  border: 1px solid #e5e7eb;
-  border-radius: 10px;
+  width: 100%;
+  height: 27px;
+  padding: 0;
+  border: none;
+  border-bottom: 1px solid #e5e7eb;
+  border-radius: 0;
   font: inherit;
+  background: transparent;
 
   &:focus {
-    outline: 2px solid #111;
-    outline-offset: 2px;
+    outline: none;
+    border-bottom: 2px solid #111;
   }
 
   &::placeholder {
