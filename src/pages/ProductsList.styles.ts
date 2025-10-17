@@ -55,8 +55,15 @@ export const SearchInput = styled.input.attrs({ type: "search" })`
 
 export const Status = styled.p`
   margin: 0;
-  font-size: 14px;
-  color: #6b7280;
+  width: 68px;
+  height: 15px;
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-transform: uppercase;
+  color: #000000;
+  white-space: nowrap;
 `
 
 export const Grid = styled.div`
