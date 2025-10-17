@@ -4,7 +4,7 @@ import { lazy, Suspense } from "react"
 import Layout from "./Layout"
 import GlobalProvider from "@/GlobalProvider"
 
-const ProductsListPage = lazy(() => import("@/pages/ProductsListPage"))
+const ProductsListPage = lazy(() => import("@/pages/productList/ProductsListPage"))
 const ProductDetailPage = lazy(() => import("@/pages/ProductDetailPage"))
 const CartPage = lazy(() => import("@/pages/CartPage"))
 
