@@ -9,6 +9,7 @@ export const BackButton = styled(Link)`
   width: 393px;
   height: 44px;
   padding: 12px 16px;
+  margin-top: 12px;
   color: #000000;
   text-decoration: none;
   font-size: 14px;
@@ -24,7 +25,7 @@ export const BackButton = styled(Link)`
     display: flex;
     width: 1920px;
     padding: 12px 100px;
-    margin-top: 80px;
+    margin-top: 12px;
   `}
 
   @media (prefers-reduced-motion: no-preference) {
@@ -48,4 +49,58 @@ export const BackArrow = styled.span`
   border-style: solid;
   border-width: 4px 6px 4px 0;
   border-color: transparent #000000 transparent transparent;
+`
+
+export const ProductDetailsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 393px;
+  padding: 0 16px;
+  margin-top: 12px;
+
+  ${media.md`
+    flex-direction: row;
+    justify-content: space-between;
+    width: 754px;
+    height: 416px;
+    padding: 0;
+    margin-top: 128px;
+    margin-left: 40px;
+  `}
+
+  ${media.lg`
+    width: 1200px;
+    height: 630px;
+    margin-top: 234px;
+    margin-left: 360px;
+  `}
+`
+
+export const ImageContainer = styled.div`
+  width: 260px;
+  height: 273px;
+
+  ${media.md`
+    width: 337px;
+    height: 416px;
+  `}
+
+  ${media.lg`
+    width: 510px;
+    height: 630px;
+  `}
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+`
+
+export const InfoContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  flex: 1;
 `

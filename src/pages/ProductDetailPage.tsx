@@ -6,7 +6,13 @@ import { qk } from "@/api/keys"
 import { getImageForColor, getPriceForStorage, capacities, colors } from "@/utils/product-mappers"
 import { useAppDispatch } from "@/store/hooks"
 import { addItem } from "@/features/cart/cartSlice"
-import { BackButton, BackArrow } from "./ProductDetailPage.styles"
+import {
+  BackButton,
+  BackArrow,
+  ProductDetailsContainer,
+  ImageContainer,
+  InfoContainer,
+} from "./ProductDetailPage.styles"
 
 export default function ProductDetailPage() {
   const { id = "" } = useParams<{ id: string }>()
@@ -60,39 +66,45 @@ export default function ProductDetailPage() {
         <BackArrow aria-hidden />
         BACK
       </BackButton>
-      {img && <img src={img} alt={`${product.name}${color ? " " + color : ""}`} />}
-      <h1>{product.name}</h1>
+      <ProductDetailsContainer>
+        <ImageContainer>
+          {img && <img src={img} alt={`${product.name}${color ? " " + color : ""}`} />}
+        </ImageContainer>
+        <InfoContainer>
+          <h1>{product.name}</h1>
 
-      <label>
-        Color
-        <select value={color} onChange={(e) => setColor(e.target.value)}>
-          <option value="">Selecciona</option>
-          {colors(product).map((c) => (
-            <option key={c} value={c}>
-              {c}
-            </option>
-          ))}
-        </select>
-      </label>
+          <label>
+            Color
+            <select value={color} onChange={(e) => setColor(e.target.value)}>
+              <option value="">Selecciona</option>
+              {colors(product).map((c) => (
+                <option key={c} value={c}>
+                  {c}
+                </option>
+              ))}
+            </select>
+          </label>
 
-      <label>
-        Almacenamiento
-        <select value={capacity} onChange={(e) => setCapacity(e.target.value)}>
-          <option value="">Selecciona</option>
-          {capacities(product).map((c) => (
-            <option key={c} value={c}>
-              {c}
-            </option>
-          ))}
-        </select>
-      </label>
+          <label>
+            Almacenamiento
+            <select value={capacity} onChange={(e) => setCapacity(e.target.value)}>
+              <option value="">Selecciona</option>
+              {capacities(product).map((c) => (
+                <option key={c} value={c}>
+                  {c}
+                </option>
+              ))}
+            </select>
+          </label>
 
-      <p>
-        <strong>€{price}</strong>
-      </p>
-      <button onClick={handleAdd} disabled={!canAdd}>
-        Añadir al carrito
-      </button>
+          <p>
+            <strong>€{price}</strong>
+          </p>
+          <button onClick={handleAdd} disabled={!canAdd}>
+            Añadir al carrito
+          </button>
+        </InfoContainer>
+      </ProductDetailsContainer>
     </article>
   )
 }
