@@ -42,13 +42,12 @@ export const RightLink = styled.span`
 `
 
 export const Badge = styled.span`
-  min-width: 18px;
-  height: 18px;
-  padding: 0 4px;
-  border-radius: 999px;
-  background: #111;
-  color: #fff;
-  font-size: 11px;
-  line-height: 18px;
+  height: 16px;
+  color: #000000;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 16px;
+  letter-spacing: 0%;
+  text-transform: uppercase;
   text-align: center;
 `

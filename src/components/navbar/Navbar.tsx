@@ -11,13 +11,15 @@ export default function Navbar() {
       <Inner>
         {/* Izquierda: Home */}
         <Link to="/">
-          <LeftLink>Home</LeftLink>
+          <LeftLink>
+            <img src="/image/mbstIcon.png" alt="MBST" width="74" height="24" />
+          </LeftLink>
         </Link>
 
         {/* Derecha: Cart con contador */}
         <Link to="/cart" aria-label={`Carrito (${count})`}>
           <RightLink>
-            Cart
+            <img src="/image/bagIcon.png" alt="Cart" width="18" height="18" />
             <Badge aria-hidden>{count}</Badge>
           </RightLink>
         </Link>
