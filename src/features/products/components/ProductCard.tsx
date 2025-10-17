@@ -6,6 +6,7 @@ import {
   ImageWrap,
   Img,
   Info,
+  BrandNameWrapper,
   Brand,
   Name,
   Price,
@@ -21,8 +22,10 @@ export default function ProductCard({ id, brand, name, basePrice, imageUrl }: Pr
         </ImageWrap>
 
         <Info>
-          <Brand>{brand}</Brand>
-          <Name>{name}</Name>
+          <BrandNameWrapper>
+            <Brand>{brand}</Brand>
+            <Name>{name}</Name>
+          </BrandNameWrapper>
           <Price>{basePrice} EUR</Price>
         </Info>
 

@@ -78,14 +78,24 @@ export const Img = styled.img`
 /* Info de texto */
 export const Info = styled.div`
   display: flex;
-  flex-direction: column;
-  gap: 8px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
   width: 100%;
   min-height: 31px;
+  gap: 4px;
 
   @media (prefers-reduced-motion: no-preference) {
     transition: color 160ms ease;
   }
+`
+
+export const BrandNameWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+  min-height: 31px;
 `
 
 export const Brand = styled.span`
@@ -103,9 +113,17 @@ export const Name = styled.h3`
 `
 
 export const Price = styled.span`
-  margin-left: auto;
+  width: 54px;
+  height: 15px;
   font-size: 12px;
-  color: #111;
+  font-weight: 300;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: right;
+  text-transform: capitalize;
+  color: #000000;
+  white-space: nowrap;
+  align-self: flex-end;
 `
 
 /* Velo negro que sube desde abajo en hover/focus */
