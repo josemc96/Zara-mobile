@@ -41,26 +41,38 @@ export const ClickArea = styled(Link)`
 export const ImageWrap = styled.div`
   position: relative;
   width: 100%;
-  height: 257px;
+  aspect-ratio: 1.2 / 1;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   align-items: center;
+  justify-content: center;
 
   ${media.md`
-    height: 290px;
+    aspect-ratio: 1.19 / 1;
   `}
 
   ${media.lg`
-    height: 257px;
+    aspect-ratio: 1.2 / 1;
   `}
 `
 
 export const Img = styled.img`
   display: block;
-  max-width: 100%;
-  max-height: 100%;
+  max-width: 180px;
+  max-height: 180px;
+  width: auto;
+  height: auto;
   object-fit: contain;
+  object-position: center;
+
+  ${media.md`
+    max-width: 200px;
+    max-height: 200px;
+  `}
+
+  ${media.lg`
+    max-width: 180px;
+    max-height: 180px;
+  `}
 `
 
 /* Info de texto */
