@@ -42,13 +42,25 @@ export const ClickArea = styled(Link)`
   }
 `
 
-/* Imagen (Figma ~312x257 → ratio similar) */
+/* Imagen wrapper */
 export const ImageWrap = styled.div`
   position: relative;
-  width: 100%;
-  aspect-ratio: 312 / 257;
-  display: grid;
-  place-items: center;
+  width: 329px;
+  height: 257px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  ${media.md`
+    width: 345px;
+    height: 290px;
+  `}
+
+  ${media.lg`
+    width: 312px;
+    height: 257px;
+  `}
 `
 
 export const Img = styled.img`
