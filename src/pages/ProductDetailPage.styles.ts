@@ -221,8 +221,8 @@ export const StorageButton = styled.button<{ $selected: boolean }>`
   height: 48px;
   padding: 24px;
   border: 1px solid ${(props) => (props.$selected ? "#000000" : "#cccccc")};
-  background: ${(props) => (props.$selected ? "#000000" : "#ffffff")};
-  color: ${(props) => (props.$selected ? "#ffffff" : "#000000")};
+  background: #ffffff;
+  color: #000000;
   font-family: Helvetica, Arial, sans-serif;
   font-size: 14px;
   font-weight: 300;
@@ -335,7 +335,7 @@ export const AddToCartButton = styled.button`
   &:disabled {
     background: #f3f2f2;
     color: #9ca3af;
-    cursor: not-allowed;
+    cursor: default;
   }
 
   &:focus-visible {
