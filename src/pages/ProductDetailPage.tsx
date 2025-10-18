@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom"
 import { useQuery } from "@tanstack/react-query"
 import { getProduct } from "@/api/products"
 import { qk } from "@/api/keys"
-import { getImageForColor, getPriceForStorage, capacities, colors } from "@/utils/product-mappers"
+import { getImageForColor, getPriceForStorage, capacities } from "@/utils/product-mappers"
 import { useAppDispatch } from "@/store/hooks"
 import { addItem } from "@/features/cart/cartSlice"
 import {
@@ -19,6 +19,10 @@ import {
   StorageLabel,
   StorageButtons,
   StorageButton,
+  ColorContainer,
+  ColorLabel,
+  ColorSwatches,
+  ColorSwatch,
 } from "./ProductDetailPage.styles"
 
 export default function ProductDetailPage() {
@@ -94,17 +98,19 @@ export default function ProductDetailPage() {
             </StorageButtons>
           </StorageContainer>
 
-          <label>
-            Color
-            <select value={color} onChange={(e) => setColor(e.target.value)}>
-              <option value="">Selecciona</option>
-              {colors(product).map((c) => (
-                <option key={c} value={c}>
-                  {c}
-                </option>
+          <ColorContainer>
+            <ColorLabel>Color</ColorLabel>
+            <ColorSwatches>
+              {product.colorOptions?.map((colorOption) => (
+                <ColorSwatch
+                  key={colorOption.name}
+                  $selected={color === colorOption.name}
+                  $color={colorOption.hexCode}
+                  onClick={() => setColor(colorOption.name)}
+                />
               ))}
-            </select>
-          </label>
+            </ColorSwatches>
+          </ColorContainer>
 
           <button onClick={handleAdd} disabled={!canAdd}>
             Añadir al carrito

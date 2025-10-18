@@ -248,3 +248,40 @@ export const StorageButton = styled.button<{ $selected: boolean }>`
     outline-offset: 2px;
   }
 `
+
+export const ColorContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+`
+
+export const ColorLabel = styled.label`
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  color: #000000;
+  text-transform: uppercase;
+`
+
+export const ColorSwatches = styled.div`
+  display: flex;
+  gap: 8px;
+`
+
+export const ColorSwatch = styled.button<{ $selected: boolean; $color: string }>`
+  width: 32px;
+  height: 32px;
+  border: 2px solid ${(props) => (props.$selected ? "#000000" : "#e5e7eb")};
+  background: ${(props) => props.$color};
+  cursor: pointer;
+  transition: all 160ms ease;
+
+  &:hover {
+    border-color: #000000;
+  }
+
+  &:focus-visible {
+    outline: 2px solid #111;
+    outline-offset: 2px;
+  }
+`
