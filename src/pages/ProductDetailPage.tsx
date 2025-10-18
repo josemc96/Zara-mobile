@@ -23,6 +23,7 @@ import {
   ColorLabel,
   ColorSwatches,
   ColorSwatch,
+  ColorName,
 } from "./ProductDetailPage.styles"
 
 export default function ProductDetailPage() {
@@ -42,6 +43,7 @@ export default function ProductDetailPage() {
 
   const [color, setColor] = useState("")
   const [capacity, setCapacity] = useState("")
+  const [hoveredColor, setHoveredColor] = useState<string | null>(null)
 
   const img = useMemo(() => (product ? getImageForColor(product, color) : ""), [product, color])
   const price = useMemo(
@@ -107,9 +109,14 @@ export default function ProductDetailPage() {
                   $selected={color === colorOption.name}
                   $color={colorOption.hexCode}
                   onClick={() => setColor(colorOption.name)}
+                  onMouseEnter={() => setHoveredColor(colorOption.name)}
+                  onMouseLeave={() => setHoveredColor(null)}
                 />
               ))}
             </ColorSwatches>
+            <ColorName $visible={color !== "" || hoveredColor !== null}>
+              {color || hoveredColor || product.colorOptions?.[0]?.name}
+            </ColorName>
           </ColorContainer>
 
           <button onClick={handleAdd} disabled={!canAdd}>

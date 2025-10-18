@@ -292,3 +292,14 @@ export const ColorSwatch = styled.button<{ $selected: boolean; $color: string }>
     outline-offset: 2px;
   }
 `
+
+export const ColorName = styled.p<{ $visible: boolean }>`
+  margin: 0;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+  color: #000000;
+  opacity: ${(props) => (props.$visible ? 1 : 0)};
+  transition: opacity 160ms ease;
+  pointer-events: none;
+`
