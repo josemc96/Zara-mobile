@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react"
+import { useNavigate } from "react-router-dom"
 import { useAppDispatch } from "@/store/hooks"
 import { addItem } from "@/features/cart/cartSlice"
 import { getImageForColor, getPriceForStorage, capacities } from "@/utils/product-mappers"
@@ -27,6 +28,7 @@ interface ProductDetailsProps {
 }
 
 export default function ProductDetails({ product }: ProductDetailsProps) {
+  const navigate = useNavigate()
   const dispatch = useAppDispatch()
   const [color, setColor] = useState("")
   const [capacity, setCapacity] = useState("")
@@ -51,6 +53,7 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
         qty: 1,
       })
     )
+    navigate("/cart")
   }
 
   return (
