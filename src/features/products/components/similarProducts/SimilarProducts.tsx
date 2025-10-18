@@ -4,6 +4,7 @@ import {
   SimilarProductsContainer,
   SimilarProductsTitle,
   SimilarProductsGrid,
+  CardWrapper,
 } from "./SimilarProducts.styles"
 
 interface SimilarProductsProps {
@@ -18,7 +19,9 @@ export default function SimilarProducts({ products }: SimilarProductsProps) {
       <SimilarProductsTitle>Similar Products</SimilarProductsTitle>
       <SimilarProductsGrid>
         {products.map((product) => (
-          <ProductCard key={product.id} {...product} />
+          <CardWrapper key={product.id}>
+            <ProductCard {...product} />
+          </CardWrapper>
         ))}
       </SimilarProductsGrid>
     </SimilarProductsContainer>

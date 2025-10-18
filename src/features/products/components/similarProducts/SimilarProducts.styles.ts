@@ -28,17 +28,33 @@ export const SimilarProductsTitle = styled.h2`
 `
 
 export const SimilarProductsGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 24px;
+  display: flex;
+  flex-direction: row;
+  gap: 0;
   overflow-x: auto;
+  overflow-y: hidden;
   scroll-snap-type: x mandatory;
 
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+`
+
+export const CardWrapper = styled.div`
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  width: 280px;
+
   ${media.md`
-    grid-template-columns: repeat(2, 1fr);
+    width: 344px;
   `}
 
   ${media.lg`
-    grid-template-columns: repeat(5, 1fr);
+    width: 344px;
   `}
 `
