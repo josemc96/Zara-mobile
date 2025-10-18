@@ -20,7 +20,7 @@ import {
   ColorSwatch,
   ColorName,
   AddToCartButton,
-} from "@/pages/ProductDetailPage.styles"
+} from "./ProductDetails.styles"
 
 interface ProductDetailsProps {
   product: Product
