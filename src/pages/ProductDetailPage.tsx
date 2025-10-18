@@ -4,6 +4,7 @@ import { getProduct } from "@/api/products"
 import { qk } from "@/api/keys"
 import { BackButton, BackArrow } from "./ProductDetailPage.styles"
 import ProductDetails from "@/features/products/components/ProductDetails"
+import ProductSpecifications from "@/features/products/components/ProductSpecifications"
 
 export default function ProductDetailPage() {
   const { id = "" } = useParams<{ id: string }>()
@@ -29,6 +30,7 @@ export default function ProductDetailPage() {
         BACK
       </BackButton>
       <ProductDetails product={product} />
+      <ProductSpecifications specs={product.specs} />
     </>
   )
 }
