@@ -1,4 +1,4 @@
-import type { Specs } from "@/types/product"
+import type { ProductSpecificationsProps } from "@/types/product"
 import {
   SpecificationsContainer,
   SpecificationsTitle,
@@ -7,10 +7,6 @@ import {
   SpecLabel,
   SpecValue,
 } from "./ProductSpecifications.styles"
-
-interface ProductSpecificationsProps {
-  specs: Specs
-}
 
 export default function ProductSpecifications({ specs }: ProductSpecificationsProps) {
   const specEntries = [

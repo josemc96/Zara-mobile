@@ -63,3 +63,7 @@ export type ProductCardProps = Pick<
   imageUrl: string // si el listado no la trae, la añades aquí
   onClick?: () => void
 }
+
+export interface ProductSpecificationsProps {
+  specs: Specs
+}
