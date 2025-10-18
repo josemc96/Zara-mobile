@@ -189,21 +189,38 @@ export const StorageContainer = styled.div`
 `
 
 export const StorageLabel = styled.label`
+  width: 305px;
+  height: 17px;
   font-family: Helvetica, Arial, sans-serif;
   font-size: 14px;
   font-weight: 300;
-  color: #000000;
+  line-height: 100%;
+  letter-spacing: 0%;
   text-transform: uppercase;
+  color: #000000;
+
+  ${media.md`
+    width: 273px;
+  `}
+
+  ${media.lg`
+    width: 273px;
+  `}
 `
 
 export const StorageButtons = styled.div`
   display: flex;
-  gap: 8px;
+  gap: 0px;
 `
 
 export const StorageButton = styled.button<{ $selected: boolean }>`
-  padding: 8px 16px;
-  border: 1px solid ${(props) => (props.$selected ? "#000000" : "#e5e7eb")};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 89px;
+  height: 48px;
+  padding: 24px;
+  border: 1px solid #cccccc;
   background: ${(props) => (props.$selected ? "#000000" : "#ffffff")};
   color: ${(props) => (props.$selected ? "#ffffff" : "#000000")};
   font-family: Helvetica, Arial, sans-serif;
@@ -211,6 +228,16 @@ export const StorageButton = styled.button<{ $selected: boolean }>`
   font-weight: 300;
   cursor: pointer;
   transition: all 160ms ease;
+
+  ${media.md`
+    width: 89px;
+    height: 48px;
+  `}
+
+  ${media.lg`
+    width: 95px;
+    height: 65px;
+  `}
 
   &:hover {
     border-color: #000000;
