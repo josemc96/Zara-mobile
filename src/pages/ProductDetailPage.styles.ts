@@ -6,10 +6,11 @@ export const BackButton = styled(Link)`
   display: flex;
   align-items: center;
   gap: 4px;
-  width: 393px;
+  width: 100%;
+  max-width: 393px;
   height: 44px;
   padding: 12px 16px;
-  margin-top: 24px;
+  margin: 24px auto 0;
   color: #000000;
   text-decoration: none;
   font-size: 14px;
@@ -23,9 +24,9 @@ export const BackButton = styled(Link)`
   /* Visible again in desktop */
   ${media.lg`
     display: flex;
-    width: 1920px;
-    padding: 12px 100px;
-    margin-top: 24px;
+    max-width: 1200px;
+    padding: 12px 0;
+    margin: 24px auto 0;
   `}
 
   @media (prefers-reduced-motion: no-preference) {

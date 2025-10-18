@@ -5,25 +5,24 @@ export const ProductDetailsContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 40px;
-  width: 393px;
+  width: 100%;
+  max-width: 393px;
   padding: 0 16px;
-  margin-top: 24px;
+  margin: 24px auto 0;
 
   ${media.md`
     flex-direction: row;
     justify-content: space-between;
-    width: 754px;
+    max-width: 754px;
     height: 416px;
     padding: 0;
-    margin-top: 24px;
-    margin-left: 40px;
+    margin: 24px auto 0;
   `}
 
   ${media.lg`
-    width: 1200px;
+    max-width: 1200px;
     height: 630px;
-    margin-top: 24px;
-    margin-left: 360px;
+    margin: 24px auto 0;
   `}
 `
 

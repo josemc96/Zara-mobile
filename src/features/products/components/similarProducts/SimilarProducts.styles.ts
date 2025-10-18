@@ -5,20 +5,21 @@ export const SimilarProductsContainer = styled.section`
   display: flex;
   flex-direction: column;
   gap: 24px;
-  width: 393px;
+  width: 100%;
+  max-width: 393px;
   padding: 0 16px;
-  margin-top: 24px;
+  margin: 24px auto 0;
 
   ${media.md`
-    width: 754px;
+    max-width: 754px;
     padding: 0;
-    margin-left: 40px;
+    margin: 24px auto 0;
   `}
 
   ${media.lg`
-    width: 1200px;
+    max-width: 1200px;
     padding: 0;
-    margin-left: 360px;
+    margin: 24px auto 0;
   `}
 `
 
