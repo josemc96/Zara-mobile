@@ -7,7 +7,7 @@ export const ProductDetailsContainer = styled.div`
   gap: 40px;
   width: 393px;
   padding: 0 16px;
-  margin-top: 12px;
+  margin-top: 24px;
 
   ${media.md`
     flex-direction: row;
@@ -15,14 +15,14 @@ export const ProductDetailsContainer = styled.div`
     width: 754px;
     height: 416px;
     padding: 0;
-    margin-top: 128px;
+    margin-top: 24px;
     margin-left: 40px;
   `}
 
   ${media.lg`
     width: 1200px;
     height: 630px;
-    margin-top: 234px;
+    margin-top: 24px;
     margin-left: 360px;
   `}
 `

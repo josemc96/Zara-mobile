@@ -7,18 +7,18 @@ export const SpecificationsContainer = styled.div`
   gap: 40px;
   width: 393px;
   padding: 0 16px;
-  margin-top: 40px;
+  margin-top: 24px;
 
   ${media.md`
     width: 754px;
     padding: 0;
-    margin-top: 632px;
+    margin-top: 24px;
     margin-left: 40px;
   `}
 
   ${media.lg`
     width: 1200px;
-    margin-top: 1018px;
+    margin-top: 24px;
     margin-left: 360px;
   `}
 `

@@ -9,7 +9,7 @@ export const BackButton = styled(Link)`
   width: 393px;
   height: 44px;
   padding: 12px 16px;
-  margin-top: 12px;
+  margin-top: 24px;
   color: #000000;
   text-decoration: none;
   font-size: 14px;
@@ -25,7 +25,7 @@ export const BackButton = styled(Link)`
     display: flex;
     width: 1920px;
     padding: 12px 100px;
-    margin-top: 12px;
+    margin-top: 24px;
   `}
 
   @media (prefers-reduced-motion: no-preference) {
