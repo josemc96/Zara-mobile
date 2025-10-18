@@ -35,13 +35,21 @@ export const SpecificationsTitle = styled.h2`
 export const SpecificationsTable = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  border-top: 0.5px solid #000000;
+  border-bottom: 0.5px solid #000000;
 `
 
 export const SpecRow = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  align-items: center;
+  padding: 12px 0;
+  gap: 48px;
+  border-bottom: 0.5px solid #000000;
+
+  &:last-child {
+    border-bottom: none;
+  }
 `
 
 export const SpecLabel = styled.span`
@@ -49,7 +57,7 @@ export const SpecLabel = styled.span`
   font-size: 12px;
   font-weight: 300;
   text-transform: uppercase;
-  color: #8c8c8c;
+  color: #000000;
 `
 
 export const SpecValue = styled.span`
