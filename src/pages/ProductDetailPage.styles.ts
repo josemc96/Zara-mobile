@@ -220,7 +220,7 @@ export const StorageButton = styled.button<{ $selected: boolean }>`
   width: 89px;
   height: 48px;
   padding: 24px;
-  border: 1px solid #cccccc;
+  border: 1px solid ${(props) => (props.$selected ? "#000000" : "#cccccc")};
   background: ${(props) => (props.$selected ? "#000000" : "#ffffff")};
   color: ${(props) => (props.$selected ? "#ffffff" : "#000000")};
   font-family: Helvetica, Arial, sans-serif;
@@ -302,4 +302,44 @@ export const ColorName = styled.p<{ $visible: boolean }>`
   opacity: ${(props) => (props.$visible ? 1 : 0)};
   transition: opacity 160ms ease;
   pointer-events: none;
+`
+
+export const AddToCartButton = styled.button`
+  width: 361px;
+  height: 48px;
+  padding: 5px 7px;
+  border: none;
+  background: #000000;
+  color: #ffffff;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 160ms ease;
+
+  ${media.md`
+    width: 260px;
+    height: 48px;
+  `}
+
+  ${media.lg`
+    width: 380px;
+    height: 56px;
+  `}
+
+  &:hover:not(:disabled) {
+    opacity: 0.8;
+  }
+
+  &:disabled {
+    background: #f3f2f2;
+    color: #9ca3af;
+    cursor: not-allowed;
+  }
+
+  &:focus-visible {
+    outline: 2px solid #111;
+    outline-offset: 2px;
+  }
 `

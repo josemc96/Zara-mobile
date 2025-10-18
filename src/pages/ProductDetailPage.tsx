@@ -24,6 +24,7 @@ import {
   ColorSwatches,
   ColorSwatch,
   ColorName,
+  AddToCartButton,
 } from "./ProductDetailPage.styles"
 
 export default function ProductDetailPage() {
@@ -119,9 +120,9 @@ export default function ProductDetailPage() {
             </ColorName>
           </ColorContainer>
 
-          <button onClick={handleAdd} disabled={!canAdd}>
-            Añadir al carrito
-          </button>
+          <AddToCartButton onClick={handleAdd} disabled={!canAdd}>
+            AÑADIR
+          </AddToCartButton>
         </InfoContainer>
       </ProductDetailsContainer>
     </article>
