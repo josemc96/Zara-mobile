@@ -7,18 +7,18 @@ export const SimilarProductsContainer = styled.section`
   gap: 24px;
   width: 100%;
   max-width: 393px;
-  padding: 0 16px;
+  padding: 0 16px 100px;
   margin: 24px auto 0;
 
   ${media.md`
     max-width: 754px;
-    padding: 0;
+    padding: 0 40px 100px;
     margin: 24px auto 0;
   `}
 
   ${media.lg`
     max-width: 1200px;
-    padding: 0;
+    padding: 0 100px 100px;
     margin: 24px auto 0;
   `}
 `
@@ -38,7 +38,6 @@ export const SimilarProductsGrid = styled.div`
   gap: 0;
   overflow-x: auto;
   overflow-y: hidden;
-  scroll-snap-type: x mandatory;
 
   /* Hide scrollbar for Chrome, Safari and Opera */
   &::-webkit-scrollbar {
@@ -52,7 +51,6 @@ export const SimilarProductsGrid = styled.div`
 
 export const CardWrapper = styled.div`
   flex-shrink: 0;
-  scroll-snap-align: start;
   width: 280px;
 
   ${media.md`
