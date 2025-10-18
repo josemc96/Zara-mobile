@@ -252,7 +252,14 @@ export const StorageButton = styled.button<{ $selected: boolean }>`
 export const ColorContainer = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 20px;
+  width: 273px;
+  height: 61px;
+
+  ${media.lg`
+    width: 210px;
+    height: 70px;
+  `}
 `
 
 export const ColorLabel = styled.label`
