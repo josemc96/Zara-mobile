@@ -113,3 +113,111 @@ export const InfoContainer = styled.div`
     gap: 64px;
   `}
 `
+
+export const TitlePriceContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  width: 181px;
+  height: 52px;
+
+  ${media.md`
+    width: 181px;
+    height: 52px;
+  `}
+
+  ${media.lg`
+    width: 380px;
+    height: 64px;
+  `}
+`
+
+export const ProductTitle = styled.h1`
+  margin: 0;
+  width: 181px;
+  height: 24px;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-transform: uppercase;
+  color: #000000;
+
+  ${media.md`
+    width: 181px;
+    height: 24px;
+    font-size: 20px;
+  `}
+
+  ${media.lg`
+    width: 380px;
+    height: 29px;
+    font-size: 24px;
+  `}
+`
+
+export const ProductPrice = styled.p`
+  margin: 0;
+  width: 98px;
+  height: 17px;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-transform: capitalize;
+  color: #000000;
+
+  ${media.md`
+    width: 98px;
+    height: 17px;
+    font-size: 14px;
+  `}
+
+  ${media.lg`
+    width: 168px;
+    height: 24px;
+    font-size: 20px;
+  `}
+`
+
+export const StorageContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+`
+
+export const StorageLabel = styled.label`
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  color: #000000;
+  text-transform: uppercase;
+`
+
+export const StorageButtons = styled.div`
+  display: flex;
+  gap: 8px;
+`
+
+export const StorageButton = styled.button<{ $selected: boolean }>`
+  padding: 8px 16px;
+  border: 1px solid ${(props) => (props.$selected ? "#000000" : "#e5e7eb")};
+  background: ${(props) => (props.$selected ? "#000000" : "#ffffff")};
+  color: ${(props) => (props.$selected ? "#ffffff" : "#000000")};
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  cursor: pointer;
+  transition: all 160ms ease;
+
+  &:hover {
+    border-color: #000000;
+  }
+
+  &:focus-visible {
+    outline: 2px solid #111;
+    outline-offset: 2px;
+  }
+`

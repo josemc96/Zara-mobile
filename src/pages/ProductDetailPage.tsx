@@ -12,6 +12,13 @@ import {
   ProductDetailsContainer,
   ImageContainer,
   InfoContainer,
+  TitlePriceContainer,
+  ProductTitle,
+  ProductPrice,
+  StorageContainer,
+  StorageLabel,
+  StorageButtons,
+  StorageButton,
 } from "./ProductDetailPage.styles"
 
 export default function ProductDetailPage() {
@@ -71,7 +78,21 @@ export default function ProductDetailPage() {
           {img && <img src={img} alt={`${product.name}${color ? " " + color : ""}`} />}
         </ImageContainer>
         <InfoContainer>
-          <h1>{product.name}</h1>
+          <TitlePriceContainer>
+            <ProductTitle>{product.name}</ProductTitle>
+            <ProductPrice>From {price} EUR</ProductPrice>
+          </TitlePriceContainer>
+
+          <StorageContainer>
+            <StorageLabel>Storage</StorageLabel>
+            <StorageButtons>
+              {capacities(product).map((c) => (
+                <StorageButton key={c} $selected={capacity === c} onClick={() => setCapacity(c)}>
+                  {c}
+                </StorageButton>
+              ))}
+            </StorageButtons>
+          </StorageContainer>
 
           <label>
             Color
@@ -85,21 +106,6 @@ export default function ProductDetailPage() {
             </select>
           </label>
 
-          <label>
-            Almacenamiento
-            <select value={capacity} onChange={(e) => setCapacity(e.target.value)}>
-              <option value="">Selecciona</option>
-              {capacities(product).map((c) => (
-                <option key={c} value={c}>
-                  {c}
-                </option>
-              ))}
-            </select>
-          </label>
-
-          <p>
-            <strong>€{price}</strong>
-          </p>
           <button onClick={handleAdd} disabled={!canAdd}>
             Añadir al carrito
           </button>
