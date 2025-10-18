@@ -3,8 +3,9 @@ import { useQuery } from "@tanstack/react-query"
 import { getProduct } from "@/api/products"
 import { qk } from "@/api/keys"
 import { BackButton, BackArrow } from "./ProductDetailPage.styles"
-import ProductDetails from "@/features/products/components/ProductDetails"
-import ProductSpecifications from "@/features/products/components/ProductSpecifications"
+import ProductDetails from "@/features/products/components/productDetails/ProductDetails"
+import ProductSpecifications from "@/features/products/components/productSpecifications/ProductSpecifications"
+import SimilarProducts from "@/features/products/components/similarProducts/SimilarProducts"
 
 export default function ProductDetailPage() {
   const { id = "" } = useParams<{ id: string }>()
@@ -31,6 +32,7 @@ export default function ProductDetailPage() {
       </BackButton>
       <ProductDetails product={product} />
       <ProductSpecifications specs={product.specs} />
+      <SimilarProducts products={product.similarProducts} />
     </>
   )
 }
