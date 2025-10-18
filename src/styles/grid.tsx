@@ -12,7 +12,7 @@ const GridGlobals = createGlobalStyle`
   }
 
   :root {
-    --container-max: 1920px;
+    --container-max: 100%;
 
     /* Mobile base (<394px) */
     --grid-columns: 4;
@@ -23,6 +23,7 @@ const GridGlobals = createGlobalStyle`
   /* Tablet (≥394px) */
   ${media.md`
     :root {
+      --container-max: 834px;
       --grid-columns: 8;
       --grid-gap: 40px;
       --page-padding-x: 40px;
@@ -32,6 +33,7 @@ const GridGlobals = createGlobalStyle`
   /* Desktop (≥834px) */
   ${media.lg`
     :root {
+      --container-max: 100%;
       --grid-columns: 12;
       --grid-gap: 48px;
       --page-padding-x: 100px;
