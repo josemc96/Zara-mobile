@@ -3,7 +3,11 @@ import { useAppSelector } from "@/store/hooks"
 import { selectCartItems } from "@/features/cart/cartSlice"
 import { Bar, Inner, LeftLink, RightLink, Badge } from "./navbar.styles"
 
-export default function Navbar() {
+interface NavbarProps {
+  isCartPage?: boolean
+}
+
+export default function Navbar({ isCartPage = false }: NavbarProps) {
   const count = useAppSelector(selectCartItems).length
 
   return (
@@ -17,12 +21,14 @@ export default function Navbar() {
         </Link>
 
         {/* Derecha: Cart con contador */}
-        <Link to="/cart" aria-label={`Carrito (${count})`}>
-          <RightLink>
-            <img src="/image/bagIcon.png" alt="Cart" width="18" height="18" />
-            <Badge aria-hidden>{count}</Badge>
-          </RightLink>
-        </Link>
+        {!isCartPage && (
+          <Link to="/cart" aria-label={`Carrito (${count})`}>
+            <RightLink>
+              <img src="/image/bagIcon.png" alt="Cart" width="18" height="18" />
+              <Badge aria-hidden>{count}</Badge>
+            </RightLink>
+          </Link>
+        )}
       </Inner>
     </Bar>
   )

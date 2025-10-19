@@ -13,7 +13,7 @@ export default function Layout() {
 
   return (
     <>
-      <Navbar />
+      <Navbar isCartPage={isCartPage} />
       <Outlet />
       {isCartPage && <CartFooter total={total} hasItems={items.length > 0} />}
     </>
