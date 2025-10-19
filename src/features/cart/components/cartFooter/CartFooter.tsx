@@ -1,11 +1,13 @@
 import { formatEUR } from "@/utils/money"
 import {
   Footer,
+  FooterContent,
   ContinueShoppingButton,
   TotalSection,
   TotalLabel,
   TotalAmount,
   PayButton,
+  ButtonsContainer,
 } from "./CartFooter.styles"
 
 interface CartFooterProps {
@@ -16,17 +18,21 @@ interface CartFooterProps {
 export default function CartFooter({ total, hasItems }: CartFooterProps) {
   return (
     <Footer>
-      {/* Left button - Continue shopping (always visible) */}
-      <ContinueShoppingButton to="/">Continue Shopping</ContinueShoppingButton>
+      <FooterContent>
+        {/* Total at the top on mobile, inline on tablet+ */}
+        {hasItems && (
+          <TotalSection>
+            <TotalLabel>Total</TotalLabel>
+            <TotalAmount>{formatEUR(total)}</TotalAmount>
+          </TotalSection>
+        )}
 
-      {/* Right side - Total and Pay button (only when products exist) */}
-      {hasItems && (
-        <TotalSection>
-          <TotalLabel>Total</TotalLabel>
-          <TotalAmount>{formatEUR(total)}</TotalAmount>
-          <PayButton>Pay</PayButton>
-        </TotalSection>
-      )}
+        {/* Buttons below total on mobile, inline on tablet+ */}
+        <ButtonsContainer>
+          <ContinueShoppingButton to="/">Continue Shopping</ContinueShoppingButton>
+          {hasItems && <PayButton>Pay</PayButton>}
+        </ButtonsContainer>
+      </FooterContent>
     </Footer>
   )
 }

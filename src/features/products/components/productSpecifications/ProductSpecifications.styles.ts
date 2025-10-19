@@ -6,13 +6,13 @@ export const SpecificationsContainer = styled.div`
   flex-direction: column;
   gap: 40px;
   width: 100%;
-  max-width: 393px;
-  padding: 0 16px;
+  max-width: 90%;
+  padding: 0 20px;
   margin: 24px auto 0;
 
   ${media.md`
-    max-width: 754px;
-    padding: 0;
+    max-width: 90%;
+    padding: 40px;
     margin: 24px auto 0;
   `}
 
