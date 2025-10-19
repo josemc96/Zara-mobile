@@ -1,38 +1,15 @@
-import { formatEUR } from "@/utils/money"
-import {
-  Footer,
-  FooterContent,
-  ContinueShoppingButton,
-  TotalSection,
-  TotalLabel,
-  TotalAmount,
-  PayButton,
-  ButtonsContainer,
-} from "./CartFooter.styles"
-
-interface CartFooterProps {
-  total: number
-  hasItems: boolean
-}
+import CartFooterMobile from "./CartFooterMobile"
+import CartFooterDesktop from "./CartFooterDesktop"
+import type { CartFooterProps } from "../../../../types/CartFooter.types"
 
 export default function CartFooter({ total, hasItems }: CartFooterProps) {
   return (
-    <Footer>
-      <FooterContent>
-        {/* Total at the top on mobile, inline on tablet+ */}
-        {hasItems && (
-          <TotalSection>
-            <TotalLabel>Total</TotalLabel>
-            <TotalAmount>{formatEUR(total)}</TotalAmount>
-          </TotalSection>
-        )}
+    <>
+      {/* Mobile footer - visible only on mobile */}
+      <CartFooterMobile total={total} hasItems={hasItems} />
 
-        {/* Buttons below total on mobile, inline on tablet+ */}
-        <ButtonsContainer>
-          <ContinueShoppingButton to="/">Continue Shopping</ContinueShoppingButton>
-          {hasItems && <PayButton>Pay</PayButton>}
-        </ButtonsContainer>
-      </FooterContent>
-    </Footer>
+      {/* Desktop/Tablet footer - visible only on tablet+ */}
+      <CartFooterDesktop total={total} hasItems={hasItems} />
+    </>
   )
 }

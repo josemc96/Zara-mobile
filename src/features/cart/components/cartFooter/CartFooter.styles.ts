@@ -12,27 +12,36 @@ export const Footer = styled.footer`
   background: #ffffff;
   z-index: 100;
   box-sizing: border-box;
-`
 
-export const FooterContent = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  max-width: 100%;
+  /* Mobile footer - visible only on mobile */
+  &:first-of-type {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 
-  ${media.md`
+    ${media.md`
+      display: none;
+    `}
+  }
+
+  /* Desktop footer - hidden on mobile */
+  &:last-of-type {
+    display: none;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     gap: 24px;
-  `}
+
+    ${media.md`
+      display: flex;
+    `}
+  }
 `
 
 export const ContinueShoppingButton = styled(Link)`
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  flex: 1;
   padding: 12px 16px;
   border: 0.5px solid #000000;
   background: transparent;
@@ -46,10 +55,16 @@ export const ContinueShoppingButton = styled(Link)`
   transition: all 160ms ease;
   white-space: nowrap;
 
-  ${media.md`
-    flex: 0 1 auto;
+  /* Mobile: equal width in buttons row */
+  footer:first-of-type & {
+    flex: 1;
+  }
+
+  /* Desktop: auto width */
+  footer:last-of-type & {
+    width: auto;
     padding: 12px 24px;
-  `}
+  }
 
   &:hover {
     background: #000000;
@@ -61,25 +76,36 @@ export const TotalSection = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
   gap: 8px;
 
-  ${media.md`
+  /* Mobile: centered, full width */
+  footer:first-of-type & {
+    justify-content: center;
+    width: 100%;
+  }
+
+  /* Desktop: left aligned, auto width */
+  footer:last-of-type & {
     justify-content: flex-start;
     gap: 16px;
-  `}
+    width: auto;
+  }
 `
 
-export const ButtonsContainer = styled.div`
+export const ButtonsRow = styled.div`
   display: flex;
   flex-direction: row;
   gap: 8px;
   width: 100%;
 
-  ${media.md`
-    gap: 16px;
-    width: auto;
-  `}
+  /* Only visible on mobile */
+  footer:first-of-type & {
+    display: flex;
+  }
+
+  footer:last-of-type & {
+    display: none;
+  }
 `
 
 export const TotalLabel = styled.span`
@@ -109,7 +135,6 @@ export const PayButton = styled.button`
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  flex: 1;
   padding: 12px 16px;
   border: none;
   background: #000000;
@@ -122,11 +147,16 @@ export const PayButton = styled.button`
   transition: all 160ms ease;
   white-space: nowrap;
 
-  ${media.md`
-    flex: 0 1 auto;
+  /* Mobile: equal width in buttons row */
+  footer:first-of-type & {
+    flex: 1;
+  }
+
+  /* Desktop: auto width */
+  footer:last-of-type & {
     padding: 12px 80px;
     font-size: 16px;
-  `}
+  }
 
   &:hover {
     opacity: 0.8;
