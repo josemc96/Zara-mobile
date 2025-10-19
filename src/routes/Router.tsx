@@ -5,8 +5,8 @@ import Layout from "./Layout"
 import GlobalProvider from "@/GlobalProvider"
 
 const ProductsListPage = lazy(() => import("@/pages/productList/ProductsListPage"))
-const ProductDetailPage = lazy(() => import("@/pages/ProductDetailPage"))
-const CartPage = lazy(() => import("@/pages/CartPage"))
+const ProductDetailPage = lazy(() => import("@/pages/productDetailsPage/ProductDetailsPage"))
+const CartPage = lazy(() => import("@/pages/cartPage/CartPage"))
 
 export default function AppRouter() {
   return (
