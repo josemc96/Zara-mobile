@@ -5,7 +5,20 @@ import { qk } from "@/api/keys"
 import type { ProductListItem } from "@/types/product"
 
 import ProductCard from "@/features/products/components/productCard/ProductCard"
-import { Page, HeaderBar, SearchInput, Status, Grid, Cell } from "./ProductsList.styles"
+import {
+  Page,
+  HeaderBar,
+  SearchInput,
+  Status,
+  Grid,
+  Cell,
+  ErrorMessage,
+  ErrorIcon,
+  ErrorText,
+  EmptyState,
+  EmptyIcon,
+  EmptyText,
+} from "./ProductsList.styles"
 
 function useDebounce(value: string, delay = 350) {
   const [v, setV] = useState(value)
@@ -45,7 +58,12 @@ export default function ProductsListPage() {
         <Status role="status">{isFetching ? "Buscando…" : `${data.length} resultados`}</Status>
       </HeaderBar>
 
-      {isError && <p role="alert">No se pudo cargar el listado.</p>}
+      {isError && (
+        <ErrorMessage role="alert">
+          <ErrorIcon>⚠️</ErrorIcon>
+          <ErrorText>No se pudo cargar el listado. Por favor, intenta de nuevo.</ErrorText>
+        </ErrorMessage>
+      )}
 
       <Grid>
         {data.length
@@ -62,7 +80,12 @@ export default function ProductsListPage() {
                 />
               </Cell>
             ))
-          : !isFetching && <p>No products found</p>}
+          : !isFetching && (
+              <EmptyState>
+                <EmptyIcon>🔍</EmptyIcon>
+                <EmptyText>No se encontraron productos</EmptyText>
+              </EmptyState>
+            )}
       </Grid>
     </Page>
   )

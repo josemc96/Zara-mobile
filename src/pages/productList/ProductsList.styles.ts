@@ -96,3 +96,90 @@ export const Cell = styled.div`
   /* cada tarjeta ocupa 1 columna en todos los tamaños */
   grid-column: span 1;
 `
+
+export const ErrorMessage = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 48px 16px;
+  text-align: center;
+
+  ${media.md`
+    padding: 64px 40px;
+  `}
+
+  ${media.lg`
+    padding: 80px 100px;
+  `}
+`
+
+export const ErrorIcon = styled.div`
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #fee2e2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  color: #dc2626;
+`
+
+export const ErrorText = styled.p`
+  margin: 0;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #374151;
+  line-height: 1.5;
+
+  ${media.md`
+    font-size: 18px;
+  `}
+`
+
+export const EmptyState = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 48px 16px;
+  text-align: center;
+  grid-column: 1 / -1;
+
+  ${media.md`
+    padding: 64px 40px;
+  `}
+
+  ${media.lg`
+    padding: 80px 100px;
+  `}
+`
+
+export const EmptyIcon = styled.div`
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #f3f4f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  color: #6b7280;
+`
+
+export const EmptyText = styled.p`
+  margin: 0;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #6b7280;
+  line-height: 1.5;
+
+  ${media.md`
+    font-size: 18px;
+  `}
+`
