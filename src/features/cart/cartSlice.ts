@@ -12,7 +12,7 @@ export type CartItem = {
   qty: number
 }
 
-type CartState = {
+export type CartState = {
   items: Record<string, CartItem> // key = variantId
 }
 
