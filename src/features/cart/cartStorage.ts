@@ -22,11 +22,3 @@ export const saveCartToStorage = (items: Record<string, CartItem>): void => {
     console.error("Failed to save cart to localStorage:", error)
   }
 }
-
-export const clearCartFromStorage = (): void => {
-  try {
-    localStorage.removeItem(CART_STORAGE_KEY)
-  } catch (error) {
-    console.error("Failed to clear cart from localStorage:", error)
-  }
-}

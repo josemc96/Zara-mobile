@@ -13,33 +13,37 @@ export const ProductCard = styled.article`
   ${media.md`
     grid-template-columns: auto 1fr;
     gap: 16px;
+    width: 100%;
   `}
 
-  /* Desktop: horizontal layout */
+  /* Desktop: horizontal layout with specific dimensions */
   ${media.lg`
     grid-template-columns: auto 1fr;
     gap: 40px;
-    width: 100%;
+    width: 452px;
+    height: 324px;
+    padding: 16px;
   `}
 `
 
 export const ProductImage = styled.img`
   width: 100%;
-  height: 250px;
+  height: 200px;
   object-fit: contain;
   justify-self: center;
 
   /* Tablet: fixed size */
   ${media.md`
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     justify-self: start;
   `}
 
-  /* Desktop: larger size */
+  /* Desktop: specific size for 452x324 card */
   ${media.lg`
-    width: 250px;
-    height: 250px;
+    width: 180px;
+    height: 180px;
+    justify-self: start;
   `}
 `
 
@@ -48,6 +52,7 @@ export const ProductInfo = styled.div`
   flex-direction: column;
   justify-content: space-between;
   gap: 8px;
+  height: 100%;
 `
 
 export const ProductName = styled.strong`

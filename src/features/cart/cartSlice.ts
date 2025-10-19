@@ -51,13 +51,10 @@ const cartSlice = createSlice({
       if (action.payload.qty <= 0) delete state.items[action.payload.variantId]
       else it.qty = action.payload.qty
     },
-    clear(state) {
-      state.items = {}
-    },
   },
 })
 
-export const { addItem, removeItem, setQty, clear } = cartSlice.actions
+export const { addItem, removeItem, setQty } = cartSlice.actions
 
 export const selectCartItems = (s: { cart: CartState }) => Object.values(s.cart.items)
 export const selectCartCount = (s: { cart: CartState }) =>
