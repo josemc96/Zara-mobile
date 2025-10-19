@@ -39,7 +39,9 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "./public/index.html",
     }),
-    new Dotenv(),
+    new Dotenv({
+      systemvars: true, // Allow system environment variables (Vercel, etc.)
+    }),
     new CopyWebpackPlugin({
       patterns: [
         { from: "public", noErrorOnMissing: true, filter: (p) => !/index\.html$/.test(p) },
