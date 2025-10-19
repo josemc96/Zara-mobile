@@ -1,25 +1,9 @@
-import { useAppDispatch, useAppSelector } from "@/store/hooks"
-import { removeItem, clear, selectCartItems, selectCartTotal } from "@/features/cart/cartSlice"
-import { formatEUR } from "@/utils/money"
-import {
-  CartPageContainer,
-  CartHeader,
-  CartTitle,
-  ClearButton,
-  ProductCard,
-  ProductImage,
-  ProductInfo,
-  ProductName,
-  ProductDetails,
-  ProductPrice,
-  RemoveButton,
-  CartFooter,
-  ContinueShoppingButton,
-  TotalSection,
-  TotalLabel,
-  TotalAmount,
-  PayButton,
-} from "./CartPage.styles"
+import { useAppSelector } from "@/store/hooks"
+import { clear, selectCartItems, selectCartTotal } from "@/features/cart/cartSlice"
+import { useAppDispatch } from "@/store/hooks"
+import { CartPageContainer, CartHeader, CartTitle, ClearButton } from "./CartPage.styles"
+import CartProductCard from "@/features/cart/components/CartProductCard"
+import CartFooter from "@/features/cart/components/CartFooter"
 
 export default function CartPage() {
   const dispatch = useAppDispatch()
@@ -29,9 +13,8 @@ export default function CartPage() {
   if (items.length === 0) {
     return (
       <CartPageContainer>
-        <CartTitle>Carrito</CartTitle>
-        <p>Tu carrito está vacío.</p>
-        <ContinueShoppingButton to="/">Ir al catálogo</ContinueShoppingButton>
+        <CartTitle>CART</CartTitle>
+        <p>Your cart is empty.</p>
       </CartPageContainer>
     )
   }
@@ -46,35 +29,19 @@ export default function CartPage() {
 
       {/* 2. Product Info Section */}
       {items.map((it) => (
-        <ProductCard key={it.variantId}>
-          <ProductImage src={it.imageUrl} alt={it.name} />
-          <ProductInfo>
-            <div>
-              <ProductName>{it.name}</ProductName>
-              <ProductDetails>
-                {it.capacity} | {it.color}
-              </ProductDetails>
-              <ProductPrice>{formatEUR(it.unitPrice)}</ProductPrice>
-            </div>
-            <RemoveButton onClick={() => dispatch(removeItem({ variantId: it.variantId }))}>
-              Remove
-            </RemoveButton>
-          </ProductInfo>
-        </ProductCard>
+        <CartProductCard
+          key={it.variantId}
+          variantId={it.variantId}
+          imageUrl={it.imageUrl || ""}
+          name={it.name}
+          capacity={it.capacity}
+          color={it.color}
+          unitPrice={it.unitPrice}
+        />
       ))}
 
       {/* 3. Footer with 2 buttons */}
-      <CartFooter>
-        {/* Left button - Continue shopping (always visible) */}
-        <ContinueShoppingButton to="/">Continue Shopping</ContinueShoppingButton>
-
-        {/* Right side - Total and Pay button (only when products exist) */}
-        <TotalSection>
-          <TotalLabel>Total</TotalLabel>
-          <TotalAmount>{formatEUR(total)}</TotalAmount>
-          <PayButton>Pay</PayButton>
-        </TotalSection>
-      </CartFooter>
+      <CartFooter total={total} />
     </CartPageContainer>
   )
 }
