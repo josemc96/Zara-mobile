@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit"
+import { createSlice, PayloadAction, createSelector } from "@reduxjs/toolkit"
 
 export type CartItem = {
   productId: string
@@ -56,11 +56,20 @@ const cartSlice = createSlice({
 
 export const { addItem, removeItem, setQty } = cartSlice.actions
 
-export const selectCartItems = (s: { cart: CartState }) => Object.values(s.cart.items)
-export const selectCartCount = (s: { cart: CartState }) =>
-  Object.values(s.cart.items).reduce((acc, it) => acc + it.qty, 0)
+// Memoized selectors to prevent unnecessary re-renders
+export const selectCartItems = createSelector(
+  [(state: { cart: CartState }) => state.cart.items],
+  (items) => Object.values(items)
+)
 
-export const selectCartTotal = (s: { cart: CartState }) =>
-  Object.values(s.cart.items).reduce((acc, it) => acc + it.unitPrice * it.qty, 0)
+export const selectCartCount = createSelector(
+  [(state: { cart: CartState }) => state.cart.items],
+  (items) => Object.values(items).reduce((acc, it) => acc + it.qty, 0)
+)
+
+export const selectCartTotal = createSelector(
+  [(state: { cart: CartState }) => state.cart.items],
+  (items) => Object.values(items).reduce((acc, it) => acc + it.unitPrice * it.qty, 0)
+)
 
 export default cartSlice.reducer
