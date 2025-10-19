@@ -46,6 +46,7 @@ export const ProductInfo = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  justify-content: space-between;
   gap: 8px;
   height: 100%;
 `
@@ -85,7 +86,7 @@ export const RemoveButton = styled.button`
   text-transform: uppercase;
   cursor: pointer;
   padding: 0;
-  margin-top: 16px;
+  margin-top: auto;
 
   &:hover {
     opacity: 0.7;
