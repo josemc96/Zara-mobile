@@ -39,6 +39,22 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
 
   const canAdd = Boolean(product && color && capacity && price > 0)
 
+  const handleStorageChange = (newCapacity: string) => {
+    setCapacity(newCapacity)
+    // If no color is selected yet, select the first color
+    if (!color && product.colorOptions && product.colorOptions.length > 0) {
+      setColor(product.colorOptions[0].name)
+    }
+  }
+
+  const handleColorChange = (newColor: string) => {
+    setColor(newColor)
+    // If no capacity is selected yet, select the first capacity
+    if (!capacity && product.storageOptions && product.storageOptions.length > 0) {
+      setCapacity(product.storageOptions[0].capacity)
+    }
+  }
+
   const handleAdd = () => {
     if (!product || !canAdd) return
     dispatch(
@@ -71,7 +87,11 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
           <StorageLabel>Storage</StorageLabel>
           <StorageButtons>
             {capacities(product).map((c) => (
-              <StorageButton key={c} $selected={capacity === c} onClick={() => setCapacity(c)}>
+              <StorageButton
+                key={c}
+                $selected={capacity === c}
+                onClick={() => handleStorageChange(c)}
+              >
                 {c}
               </StorageButton>
             ))}
@@ -86,7 +106,7 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
                 key={colorOption.name}
                 $selected={color === colorOption.name}
                 $color={colorOption.hexCode}
-                onClick={() => setColor(colorOption.name)}
+                onClick={() => handleColorChange(colorOption.name)}
                 onMouseEnter={() => setHoveredColor(colorOption.name)}
                 onMouseLeave={() => setHoveredColor(null)}
               />
