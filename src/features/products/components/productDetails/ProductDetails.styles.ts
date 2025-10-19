@@ -227,14 +227,15 @@ export const ColorSwatches = styled.div`
 export const ColorSwatch = styled.button<{ $selected: boolean; $color: string }>`
   width: 24px;
   height: 24px;
-  padding: 2px;
-  border: 1px solid #cccccc;
+  padding: 0;
+  border: ${(props) => (props.$selected ? "3px solid #000000" : "1px solid #cccccc")};
   background: ${(props) => props.$color};
   cursor: pointer;
   transition: all 160ms ease;
+  position: relative;
 
   &:hover {
-    border-width: 2px;
+    transform: scale(1.1);
     border-color: #000000;
   }
 
