@@ -5,7 +5,7 @@ A modern, responsive e-commerce application for browsing and purchasing mobile d
 ## ✨ Features
 
 - 🔍 **Product Search** - Real-time search with debouncing
-- 📱 **Product Catalog** - Browse mobile devices with pagination
+- 📱 **Product Catalog** - Browse mobile devices
 - 🛍️ **Shopping Cart** - Add products to cart with persistent storage
 - 📄 **Product Details** - Detailed product information with specifications
 - 🎨 **Color & Storage Options** - Multiple variants for each product
@@ -281,6 +281,44 @@ This project uses several tools to maintain code quality:
 - **Query Keys**: Centralized key management
 - **DevTools**: Debug queries in development
 
+## 🪝 Hooks
+
+### Custom Hooks
+
+| Hook          | Description                                              |
+| ------------- | -------------------------------------------------------- |
+| `useDebounce` | Debounces search input to reduce API calls (350ms delay) |
+
+### Redux Hooks
+
+| Hook             | Description                                   |
+| ---------------- | --------------------------------------------- |
+| `useAppDispatch` | Typed dispatch hook for Redux actions         |
+| `useAppSelector` | Typed selector hook for accessing Redux state |
+
+### React Query Hooks
+
+| Hook       | Description                                               |
+| ---------- | --------------------------------------------------------- |
+| `useQuery` | Fetches and caches product data with automatic refetching |
+
+### React Router Hooks
+
+| Hook          | Description                                |
+| ------------- | ------------------------------------------ |
+| `useNavigate` | Programmatic navigation between routes     |
+| `useParams`   | Access route parameters (e.g., product ID) |
+| `useLocation` | Access current route location              |
+
+### React Built-in Hooks
+
+| Hook               | Description                                     |
+| ------------------ | ----------------------------------------------- |
+| `useState`         | Manage local component state                    |
+| `useEffect`        | Handle side effects and lifecycle events        |
+| `useMemo`          | Memoize expensive computations                  |
+| `useDeferredValue` | Defer non-urgent updates for better performance |
+
 ## 📱 Routes
 
 | Path            | Component         | Description                        |
@@ -303,20 +341,9 @@ This project uses several tools to maintain code quality:
 - Run tests before committing
 - Ensure code passes linting and formatting checks
 
-## 📄 License
-
-This project is private and proprietary.
-
 ## 👤 Author
 
-**José Manuel** - [GitHub](https://github.com/josemc96)
-
-## 🙏 Acknowledgments
-
-- React team for the amazing framework
-- TanStack for React Query
-- Redux team for state management
-- Vercel for hosting and deployment
+**José Morcillo** - [GitHub](https://github.com/josemc96)
 
 ---
 

@@ -5,16 +5,15 @@ import { media } from "@/styles/media"
 
 /* Contenedor raíz */
 export const Card = styled.article`
-  /* Variables por defecto */
   --brand: #8c8c8c;
   --name: #111111;
   --price: #000000;
 
-  /* Fondo negro deslizante (0% = visible, 100% = oculto abajo) */
+  /* Fondo negro deslizante*/
   --bgY: 100%;
 
-  /* 🎛 Control de velocidad y easing del deslizamiento y colores */
-  --bgDur: 520ms; /* súbelo/bájalo para más lento/rápido */
+  /* velocidad y easing del deslizamiento y colores */
+  --bgDur: 520ms; /* velocidad  */
   --bgEase: cubic-bezier(0.22, 1, 0.36, 1);
 
   width: 100%;
