@@ -92,6 +92,9 @@ export const ProductTitle = styled.h1`
   letter-spacing: 0%;
   text-transform: uppercase;
   color: #000000;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 
   ${media.md`
     width: 181px;
@@ -117,6 +120,7 @@ export const ProductPrice = styled.p`
   letter-spacing: 0%;
   text-transform: capitalize;
   color: #000000;
+  white-space: nowrap;
 
   ${media.md`
     width: 98px;
@@ -147,6 +151,7 @@ export const StorageLabel = styled.label`
   letter-spacing: 0%;
   text-transform: uppercase;
   color: #000000;
+  white-space: nowrap;
 
   ${media.md`
     width: 273px;
@@ -177,6 +182,7 @@ export const StorageButton = styled.button<{ $selected: boolean }>`
   font-weight: 300;
   cursor: pointer;
   transition: all 160ms ease;
+  white-space: nowrap;
 
   ${media.md`
     width: 89px;
@@ -217,6 +223,7 @@ export const ColorLabel = styled.label`
   font-weight: 300;
   color: #000000;
   text-transform: uppercase;
+  white-space: nowrap;
 `
 
 export const ColorSwatches = styled.div`
@@ -254,6 +261,7 @@ export const ColorName = styled.p<{ $visible: boolean }>`
   opacity: ${(props) => (props.$visible ? 1 : 0)};
   transition: opacity 160ms ease;
   pointer-events: none;
+  white-space: nowrap;
 `
 
 export const AddToCartButton = styled.button`
@@ -269,6 +277,7 @@ export const AddToCartButton = styled.button`
   text-transform: uppercase;
   cursor: pointer;
   transition: all 160ms ease;
+  white-space: nowrap;
 
   ${media.md`
     width: 260px;
