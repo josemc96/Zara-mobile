@@ -5,13 +5,16 @@ export const CartPageContainer = styled.section`
   width: 100%;
   margin: 0 auto;
   padding: 24px 16px;
+  padding-bottom: 100px;
 
   ${media.md`
     padding: 24px 40px;
+    padding-bottom: 100px;
   `}
 
   ${media.lg`
     padding: 24px 100px;
+    padding-bottom: 100px;
   `}
 `
 

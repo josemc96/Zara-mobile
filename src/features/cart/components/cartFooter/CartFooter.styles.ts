@@ -2,11 +2,19 @@ import styled from "styled-components"
 import { Link } from "react-router-dom"
 
 export const Footer = styled.footer`
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 24px;
   width: 100%;
+  padding: 16px;
+  background: #ffffff;
+  border-top: 1px solid #e5e7eb;
+  z-index: 100;
 `
 
 export const ContinueShoppingButton = styled(Link)`
