@@ -11,6 +11,10 @@ const GridGlobals = createGlobalStyle`
     font-family:  Helvetica, Arial, sans-serif;
   }
 
+  html, body {
+    overflow-x: hidden;
+  }
+
   :root {
     --container-max: 100%;
 

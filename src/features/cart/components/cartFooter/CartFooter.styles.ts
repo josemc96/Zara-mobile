@@ -10,11 +10,12 @@ export const Footer = styled.footer`
   justify-content: space-between;
   align-items: center;
   gap: 24px;
-  width: 100%;
+  max-width: 100vw;
   padding: 16px;
   background: #ffffff;
   border-top: 1px solid #e5e7eb;
   z-index: 100;
+  box-sizing: border-box;
 `
 
 export const ContinueShoppingButton = styled(Link)`
@@ -65,12 +66,12 @@ export const PayButton = styled.button`
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 12px 24px;
+  padding: 16px 32px;
   border: none;
   background: #333333;
   color: #ffffff;
   font-family: Helvetica, Arial, sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 300;
   text-transform: uppercase;
   cursor: pointer;
