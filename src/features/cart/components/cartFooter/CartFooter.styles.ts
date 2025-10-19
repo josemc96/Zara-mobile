@@ -13,9 +13,9 @@ export const Footer = styled.footer`
   max-width: 100vw;
   padding: 16px;
   background: #ffffff;
-  border-top: 1px solid #e5e7eb;
   z-index: 100;
   box-sizing: border-box;
+  margin: 40px;
 `
 
 export const ContinueShoppingButton = styled(Link)`
@@ -42,9 +42,9 @@ export const ContinueShoppingButton = styled(Link)`
 
 export const TotalSection = styled.div`
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 8px;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
 `
 
 export const TotalLabel = styled.span`
@@ -66,7 +66,7 @@ export const PayButton = styled.button`
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 16px 32px;
+  padding: 12px 80px;
   border: none;
   background: #333333;
   color: #ffffff;
