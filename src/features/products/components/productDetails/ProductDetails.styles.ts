@@ -265,9 +265,9 @@ export const ColorName = styled.p<{ $visible: boolean }>`
 `
 
 export const AddToCartButton = styled.button`
-  width: 361px;
+  width: 80%;
   height: 48px;
-  padding: 5px 7px;
+  padding: 5px 20px;
   border: none;
   background: #000000;
   color: #ffffff;
