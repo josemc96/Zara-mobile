@@ -1,18 +1,15 @@
 import { useAppSelector } from "@/store/hooks"
-import { selectCartItems, selectCartTotal } from "@/features/cart/cartSlice"
+import { selectCartItems } from "@/features/cart/cartSlice"
 import { CartPageContainer, CartHeader, CartTitle } from "./CartPage.styles"
-import CartProductCard from "@/features/cart/components/CartProductCard"
-import CartFooter from "@/features/cart/components/CartFooter"
+import CartProductCard from "@/features/cart/components/cartProductCard/CartProductCard"
 
 export default function CartPage() {
   const items = useAppSelector(selectCartItems)
-  const total = useAppSelector(selectCartTotal)
 
   if (items.length === 0) {
     return (
       <CartPageContainer>
         <CartTitle>CART</CartTitle>
-        <p>Your cart is empty.</p>
       </CartPageContainer>
     )
   }
@@ -36,9 +33,6 @@ export default function CartPage() {
           unitPrice={it.unitPrice}
         />
       ))}
-
-      {/* 3. Footer with 2 buttons */}
-      <CartFooter total={total} />
     </CartPageContainer>
   )
 }
