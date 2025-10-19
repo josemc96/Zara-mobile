@@ -1,24 +1,54 @@
 import styled from "styled-components"
+import { media } from "@/styles/media"
 
 export const ProductCard = styled.article`
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: 1fr;
   gap: 16px;
   padding: 16px;
-  border: 0.5px solid #000000;
+  border: 1px solid #000000;
   margin-bottom: 24px;
+  width: 100%;
+
+  /* Tablet: horizontal layout */
+  ${media.md`
+    grid-template-columns: auto 1fr;
+    gap: 16px;
+  `}
+
+  /* Desktop: horizontal layout */
+  ${media.lg`
+    grid-template-columns: auto 1fr;
+    gap: 40px;
+    width: 100%;
+  `}
 `
 
 export const ProductImage = styled.img`
-  width: 100px;
-  height: 100px;
+  width: 100%;
+  height: 250px;
   object-fit: contain;
+  justify-self: center;
+
+  /* Tablet: fixed size */
+  ${media.md`
+    width: 200px;
+    height: 200px;
+    justify-self: start;
+  `}
+
+  /* Desktop: larger size */
+  ${media.lg`
+    width: 250px;
+    height: 250px;
+  `}
 `
 
 export const ProductInfo = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  gap: 8px;
 `
 
 export const ProductName = styled.strong`

@@ -3,7 +3,6 @@ import { media } from "@/styles/media"
 
 export const CartPageContainer = styled.section`
   width: 100%;
-  max-width: 548px;
   margin: 0 auto;
   padding: 24px 16px;
 
@@ -12,7 +11,7 @@ export const CartPageContainer = styled.section`
   `}
 
   ${media.lg`
-    padding: 24px 100px;
+    padding: 24px 100px 24px 100px;
   `}
 `
 
@@ -21,6 +20,7 @@ export const CartHeader = styled.header`
   justify-content: space-between;
   align-items: center;
   margin-bottom: 24px;
+  width: 100%;
 `
 
 export const CartTitle = styled.h1`
