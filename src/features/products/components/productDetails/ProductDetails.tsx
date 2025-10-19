@@ -80,11 +80,11 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
       <InfoContainer>
         <TitlePriceContainer>
           <ProductTitle>{product.name}</ProductTitle>
-          <ProductPrice>From {price} EUR</ProductPrice>
+          <ProductPrice>{price} EUR</ProductPrice>
         </TitlePriceContainer>
 
         <StorageContainer>
-          <StorageLabel>Storage</StorageLabel>
+          <StorageLabel>STORAGE ¿HOW MUCH SPACE DO YOU NEED?</StorageLabel>
           <StorageButtons>
             {capacities(product).map((c) => (
               <StorageButton
@@ -99,7 +99,7 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
         </StorageContainer>
 
         <ColorContainer>
-          <ColorLabel>Color</ColorLabel>
+          <ColorLabel>COLOR. PICK YOUR FAVOURITE.</ColorLabel>
           <ColorSwatches>
             {product.colorOptions?.map((colorOption) => (
               <ColorSwatch
