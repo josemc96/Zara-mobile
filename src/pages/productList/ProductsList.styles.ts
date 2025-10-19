@@ -6,7 +6,7 @@ export const Page = styled.section`
   margin: 0 auto;
   display: grid;
   gap: 24px;
-  padding-top: 104px;
+  padding-top: 180px;
 
   ${media.md`
     gap: 24px;
@@ -18,10 +18,16 @@ export const Page = styled.section`
 `
 
 export const HeaderBar = styled.header`
+  position: fixed;
+  top: 80px;
+  left: 0;
+  right: 0;
   display: flex;
   flex-direction: column;
   gap: 24px;
   padding: 12px 16px;
+  background: #ffffff;
+  z-index: 99;
 
   ${media.md`
     padding: 12px 40px;
