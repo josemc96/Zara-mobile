@@ -64,7 +64,6 @@ export const ProductDetails = styled.span`
   font-family: Helvetica, Arial, sans-serif;
   font-size: 12px;
   font-weight: 300;
-  color: #8c8c8c;
   margin-bottom: 4px;
 `
 
