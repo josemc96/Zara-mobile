@@ -38,13 +38,11 @@ export default function CartProductCard({
     <ProductCard>
       <ProductImage src={imageUrl} alt={name} />
       <ProductInfo>
-        <div>
-          <ProductName>{name}</ProductName>
-          <ProductDetails>
-            {capacity} | {color}
-          </ProductDetails>
-          <ProductPrice>{formatEUR(unitPrice)}</ProductPrice>
-        </div>
+        <ProductName>{name}</ProductName>
+        <ProductDetails>
+          {capacity} | {color}
+        </ProductDetails>
+        <ProductPrice>{formatEUR(unitPrice)}</ProductPrice>
         <RemoveButton onClick={handleRemove}>Remove</RemoveButton>
       </ProductInfo>
     </ProductCard>
