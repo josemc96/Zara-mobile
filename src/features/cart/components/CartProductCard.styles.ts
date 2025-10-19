@@ -6,7 +6,6 @@ export const ProductCard = styled.article`
   grid-template-columns: 1fr;
   gap: 16px;
   padding: 16px;
-  border: 1px solid #000000;
   margin-bottom: 24px;
   width: 100%;
 

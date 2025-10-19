@@ -11,7 +11,7 @@ export const CartPageContainer = styled.section`
   `}
 
   ${media.lg`
-    padding: 24px 100px 24px 100px;
+    padding: 24px 100px;
   `}
 `
 
