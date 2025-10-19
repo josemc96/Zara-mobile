@@ -40,7 +40,6 @@ module.exports = {
       template: "./public/index.html",
     }),
     new Dotenv(),
-    new HtmlWebpackPlugin({ template: "public/index.html" }),
     new CopyWebpackPlugin({
       patterns: [
         { from: "public", noErrorOnMissing: true, filter: (p) => !/index\.html$/.test(p) },
