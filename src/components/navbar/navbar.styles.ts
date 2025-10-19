@@ -7,7 +7,6 @@ export const Bar = styled.header`
   right: 0;
   width: 100%;
   background: #ffffff;
-  border-bottom: 0.5px solid #e5e7eb;
   z-index: 100;
 `
 
