@@ -1,9 +1,14 @@
 import styled from "styled-components"
 
 export const Bar = styled.header`
-  width: 100%;
-  border-bottom: 0.5px solid #e5e7eb;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background: #ffffff;
+  border-bottom: 0.5px solid #e5e7eb;
+  z-index: 100;
 `
 
 export const Inner = styled.div`

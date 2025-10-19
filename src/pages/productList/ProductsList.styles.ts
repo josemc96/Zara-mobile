@@ -6,7 +6,7 @@ export const Page = styled.section`
   margin: 0 auto;
   display: grid;
   gap: 24px;
-  padding-top: 24px;
+  padding-top: 104px;
 
   ${media.md`
     gap: 24px;
@@ -14,7 +14,6 @@ export const Page = styled.section`
 
   ${media.lg`
     gap: 48px;
-    padding-top: 48px;
   `}
 `
 

@@ -4,17 +4,15 @@ import { media } from "@/styles/media"
 export const CartPageContainer = styled.section`
   width: 100%;
   margin: 0 auto;
-  padding: 24px 16px;
-  padding-bottom: 100px;
+  padding: 104px 16px 100px;
+  min-height: 100vh;
 
   ${media.md`
-    padding: 24px 40px;
-    padding-bottom: 100px;
+    padding: 104px 40px 100px;
   `}
 
   ${media.lg`
-    padding: 24px 100px;
-    padding-bottom: 100px;
+    padding: 104px 100px 100px;
   `}
 `
 
