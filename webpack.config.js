@@ -40,7 +40,7 @@ module.exports = {
       template: "./public/index.html",
     }),
     new Dotenv({
-      systemvars: true, // Allow system environment variables (Vercel, etc.)
+      systemvars: true, // Allow system environment variables (Vercel)
     }),
     new CopyWebpackPlugin({
       patterns: [
