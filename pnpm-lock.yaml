@@ -34,9 +34,6 @@ devDependencies:
   "@eslint/js":
     specifier: ^9.37.0
     version: 9.37.0
-  "@testing-library/jest-dom":
-    specifier: ^6.4.2
-    version: 6.9.1
   "@types/jest":
     specifier: ^29.5.12
     version: 29.5.14
@@ -120,13 +117,6 @@ devDependencies:
     version: 5.2.2(webpack-cli@6.0.1)(webpack@5.102.1)
 
 packages:
-  /@adobe/css-tools@4.4.4:
-    resolution:
-      {
-        integrity: sha512-Elp+iwUx5rN5+Y8xLt5/GRoG20WGoDCQ/1Fb+1LiGtvwbDavuSk0jhD/eZdckHAuzcDzccnkv+rEjyWfRx18gg==,
-      }
-    dev: true
-
   /@babel/code-frame@7.27.1:
     resolution:
       {
@@ -1392,21 +1382,6 @@ packages:
       react: 19.2.0
     dev: false
 
-  /@testing-library/jest-dom@6.9.1:
-    resolution:
-      {
-        integrity: sha512-zIcONa+hVtVSSep9UT3jZ5rizo2BsxgyDYU7WFD5eICBE7no3881HGeb/QkGfsJs6JTkY1aQhT7rIPC7e+0nnA==,
-      }
-    engines: { node: ">=14", npm: ">=6", yarn: ">=1" }
-    dependencies:
-      "@adobe/css-tools": 4.4.4
-      aria-query: 5.3.2
-      css.escape: 1.5.1
-      dom-accessibility-api: 0.6.3
-      picocolors: 1.1.1
-      redent: 3.0.0
-    dev: true
-
   /@types/babel__core@7.20.5:
     resolution:
       {
@@ -2375,14 +2350,6 @@ packages:
       }
     dev: true
 
-  /aria-query@5.3.2:
-    resolution:
-      {
-        integrity: sha512-COROpnaoap1E2F000S62r6A60uHZnmlvomhfyT2DlTcrY1OrBKn2UhH7qn5wTC9zMvD0AY7csdPSNwKP+7WiQw==,
-      }
-    engines: { node: ">= 0.4" }
-    dev: true
-
   /array-flatten@1.1.1:
     resolution:
       {
@@ -3135,13 +3102,6 @@ packages:
     engines: { node: ">= 6" }
     dev: true
 
-  /css.escape@1.5.1:
-    resolution:
-      {
-        integrity: sha512-YUifsXXuknHlUsmlgyY0PKzgPOr7/FjCePfHNt0jxm83wHZi44VDMQ7/fGNkjY3/jV1MC+1CmZbaHzugyeRtpg==,
-      }
-    dev: true
-
   /cssesc@3.0.0:
     resolution:
       {
@@ -3310,13 +3270,6 @@ packages:
     engines: { node: ">=6" }
     dependencies:
       "@leichtgewicht/ip-codec": 2.0.5
-    dev: true
-
-  /dom-accessibility-api@0.6.3:
-    resolution:
-      {
-        integrity: sha512-7ZgogeTnjuHbo+ct10G9Ffp0mif17idi0IyWNVA/wcwcm7NPOD/WEHVP3n7n3MhXqxoIYm8d6MuZohYWIZ4T3w==,
-      }
     dev: true
 
   /dom-converter@0.2.0:
@@ -4588,14 +4541,6 @@ packages:
     engines: { node: ">=0.8.19" }
     dev: true
 
-  /indent-string@4.0.0:
-    resolution:
-      {
-        integrity: sha512-EdDDZu4A2OyIK7Lr/2zG+w5jmbuk1DVBnEwREQvBzspBJkCEbRa8GxU1lghYcaGJCnRWibjDXlq779X1/y5xwg==,
-      }
-    engines: { node: ">=8" }
-    dev: true
-
   /inflight@1.0.6:
     resolution:
       {
@@ -5843,14 +5788,6 @@ packages:
     engines: { node: ">=12" }
     dev: true
 
-  /min-indent@1.0.1:
-    resolution:
-      {
-        integrity: sha512-I9jwMn07Sy/IwOj3zVkVik2JTvgpaykDZEigL6Rx6N9LbMywwUSMtxET+7lVoDLLd3O3IXwJwvuuns8UB/HeAg==,
-      }
-    engines: { node: ">=4" }
-    dev: true
-
   /minimalistic-assert@1.0.1:
     resolution:
       {
@@ -6739,17 +6676,6 @@ packages:
       resolve: 1.22.10
     dev: true
 
-  /redent@3.0.0:
-    resolution:
-      {
-        integrity: sha512-6tDA8g98We0zd0GvVeMT9arEOnTw9qM03L9cJXaCjrip1OO764RDBLBfrB4cwzNGDj5OA5ioymC9GkizgWJDUg==,
-      }
-    engines: { node: ">=8" }
-    dependencies:
-      indent-string: 4.0.0
-      strip-indent: 3.0.0
-    dev: true
-
   /redux-thunk@3.1.0(redux@5.0.1):
     resolution:
       {
@@ -7460,16 +7386,6 @@ packages:
         integrity: sha512-dOESqjYr96iWYylGObzd39EuNTa5VJxyvVAEm5Jnh7KGo75V43Hk1odPQkNDyXNmUR6k+gEiDVXnjB8HJ3crXw==,
       }
     engines: { node: ">=12" }
-    dev: true
-
-  /strip-indent@3.0.0:
-    resolution:
-      {
-        integrity: sha512-laJTa3Jb+VQpaC6DseHhF7dXVqHTfJPCRDaEbid/drOhgitgYku/letMUqOXFoWV0zIIUbjpdH2t+tYj4bQMRQ==,
-      }
-    engines: { node: ">=8" }
-    dependencies:
-      min-indent: 1.0.1
     dev: true
 
   /strip-json-comments@3.1.1:
