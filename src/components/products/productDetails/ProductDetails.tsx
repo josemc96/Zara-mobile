@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom"
 import { useAppDispatch } from "@/store/hooks"
 import { addItem } from "@/features"
 import { getImageForColor, getPriceForStorage, capacities, formatEUR } from "@/utils"
-import type { Product } from "@/types"
+import type { Product } from "@/types/product"
 import {
   ProductDetailsContainer,
   ImageContainer,
