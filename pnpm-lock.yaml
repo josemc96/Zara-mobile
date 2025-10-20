@@ -64,6 +64,9 @@ devDependencies:
   css-loader:
     specifier: ^7.1.2
     version: 7.1.2(webpack@5.102.1)
+  dotenv:
+    specifier: ^17.2.3
+    version: 17.2.3
   dotenv-webpack:
     specifier: ^8.1.1
     version: 8.1.1(webpack@5.102.1)
@@ -3350,6 +3353,14 @@ packages:
     dependencies:
       dotenv-defaults: 2.0.2
       webpack: 5.102.1(webpack-cli@6.0.1)
+    dev: true
+
+  /dotenv@17.2.3:
+    resolution:
+      {
+        integrity: sha512-JVUnt+DUIzu87TABbhPmNfVdBDt18BLOWjMUFJMSi/Qqg7NTYtabbvSNJGOJ7afbRuv9D/lngizHtP7QyLQ+9w==,
+      }
+    engines: { node: ">=12" }
     dev: true
 
   /dotenv@8.6.0:

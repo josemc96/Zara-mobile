@@ -1,2 +1,11 @@
-process.env.API_URL = "https://prueba-tecnica-api-tienda-moviles.onrender.com"
-process.env.API_KEY = "test-api-key"
+import { config } from "dotenv"
+
+config({ path: ".env" })
+
+if (!process.env.API_URL) {
+  throw new Error("API_URL is not defined in .env file")
+}
+
+if (!process.env.API_KEY) {
+  process.env.API_KEY = "test-api-key"
+}

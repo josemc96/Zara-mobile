@@ -1,6 +1,6 @@
 import { http, HttpResponse, delay } from "msw"
 
-const API = process.env.API_URL || "https://prueba-tecnica-api-tienda-moviles.onrender.com"
+const API = process.env.API_URL as string
 
 export const handlers = [
   http.get(`${API}/products`, async ({ request }) => {

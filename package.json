@@ -38,6 +38,7 @@
     "copy-webpack-plugin": "^13.0.1",
     "cross-env": "^10.1.0",
     "css-loader": "^7.1.2",
+    "dotenv": "^17.2.3",
     "dotenv-webpack": "^8.1.1",
     "eslint": "^9.37.0",
     "globals": "^16.4.0",
