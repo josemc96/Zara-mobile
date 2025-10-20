@@ -1,5 +1,6 @@
 // import { Link } from "react-router-dom";
 import { ProductCardProps } from "@/types/product"
+import { formatEUR } from "@/utils/money"
 import {
   Card,
   ClickArea,
@@ -25,7 +26,7 @@ export default function ProductCard({ id, brand, name, basePrice, imageUrl }: Pr
             <Brand>{brand}</Brand>
             <Name>{name}</Name>
           </BrandNameWrapper>
-          <Price>{basePrice} EUR</Price>
+          <Price>{formatEUR(basePrice)}</Price>
         </Info>
       </ClickArea>
     </Card>

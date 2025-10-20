@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom"
 import { useAppDispatch } from "@/store/hooks"
 import { addItem } from "@/features/cart/cartSlice"
 import { getImageForColor, getPriceForStorage, capacities } from "@/utils/product-mappers"
+import { formatEUR } from "@/utils/money"
 import type { Product } from "@/types/product"
 import {
   ProductDetailsContainer,
@@ -80,7 +81,7 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
       <InfoContainer>
         <TitlePriceContainer>
           <ProductTitle>{product.name}</ProductTitle>
-          <ProductPrice>{price} EUR</ProductPrice>
+          <ProductPrice>{formatEUR(price)}</ProductPrice>
         </TitlePriceContainer>
 
         <StorageContainer>
