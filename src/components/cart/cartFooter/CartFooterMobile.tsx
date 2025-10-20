@@ -8,7 +8,7 @@ import {
   PayButton,
   ButtonsRow,
 } from "./CartFooter.styles"
-import type { CartFooterMobileProps } from "../../../../types/CartFooter.types"
+import type { CartFooterMobileProps } from "../../../types/CartFooter.types"
 
 export default function CartFooterMobile({ total, hasItems }: CartFooterMobileProps) {
   return (

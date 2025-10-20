@@ -7,7 +7,7 @@ import {
   TotalAmount,
   PayButton,
 } from "./CartFooter.styles"
-import type { CartFooterDesktopProps } from "../../../../types/CartFooter.types"
+import type { CartFooterDesktopProps } from "../../../types/CartFooter.types"
 
 export default function CartFooterDesktop({ total, hasItems }: CartFooterDesktopProps) {
   return (

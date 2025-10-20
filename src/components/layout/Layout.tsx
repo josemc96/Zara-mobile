@@ -1,6 +1,6 @@
 import { Outlet, useLocation } from "react-router-dom"
 import Navbar from "@/components/navbar/Navbar"
-import CartFooter from "@/features/cart/components/cartFooter/CartFooter"
+import CartFooter from "@/components/cart/cartFooter/CartFooter"
 import { useAppSelector } from "@/store/hooks"
 import { selectCartTotal, selectCartItems } from "@/features/cart/cartSlice"
 

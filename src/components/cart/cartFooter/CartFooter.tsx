@@ -1,6 +1,6 @@
 import CartFooterMobile from "./CartFooterMobile"
 import CartFooterDesktop from "./CartFooterDesktop"
-import type { CartFooterProps } from "../../../../types/CartFooter.types"
+import type { CartFooterProps } from "../../../types/CartFooter.types"
 
 export default function CartFooter({ total, hasItems }: CartFooterProps) {
   return (

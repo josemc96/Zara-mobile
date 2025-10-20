@@ -4,7 +4,7 @@ import { getProducts } from "@/api/products"
 import { qk } from "@/api/keys"
 import type { ProductListItem } from "@/types/product"
 
-import ProductCard from "@/features/products/components/productCard/ProductCard"
+import ProductCard from "@/components/products/productCard/ProductCard"
 import {
   Page,
   HeaderBar,

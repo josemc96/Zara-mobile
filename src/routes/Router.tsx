@@ -1,7 +1,7 @@
 // src/routes/Router.tsx
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { lazy, Suspense } from "react"
-import Layout from "./Layout"
+import Layout from "../components/layout/Layout"
 import GlobalProvider from "@/GlobalProvider"
 
 const ProductsListPage = lazy(() => import("@/pages/productList/ProductsListPage"))
