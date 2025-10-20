@@ -1,8 +1,7 @@
 import { Outlet, useLocation } from "react-router-dom"
-import Navbar from "@/components/navbar/Navbar"
-import CartFooter from "@/components/cart/cartFooter/CartFooter"
+import { Navbar, CartFooter } from "@/components"
 import { useAppSelector } from "@/store/hooks"
-import { selectCartTotal, selectCartItems } from "@/features/cart/cartSlice"
+import { selectCartTotal, selectCartItems } from "@/features"
 
 export default function Layout() {
   const location = useLocation()

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import { useAppSelector } from "@/store/hooks"
-import { selectCartItems } from "@/features/cart/cartSlice"
+import { selectCartItems } from "@/features"
 import { Bar, Inner, LeftLink, RightLink, Badge } from "./navbar.styles"
 
 interface NavbarProps {

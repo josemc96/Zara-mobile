@@ -1,11 +1,8 @@
 import { useParams } from "react-router-dom"
 import { useQuery } from "@tanstack/react-query"
-import { getProduct } from "@/api/products"
-import { qk } from "@/api/keys"
+import { getProduct, qk } from "@/api"
 import { BackButton, BackArrow } from "./ProductDetailsPage.styles"
-import ProductDetails from "@/components/products/productDetails/ProductDetails"
-import ProductSpecifications from "@/components/products/productSpecifications/ProductSpecifications"
-import SimilarProducts from "@/components/products/similarProducts/SimilarProducts"
+import { ProductDetails, ProductSpecifications, SimilarProducts } from "@/components"
 
 export default function ProductDetailPage() {
   const { id = "" } = useParams<{ id: string }>()

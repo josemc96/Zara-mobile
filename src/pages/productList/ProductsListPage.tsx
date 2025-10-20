@@ -1,10 +1,8 @@
 import { useEffect, useState, useDeferredValue } from "react"
 import { useQuery } from "@tanstack/react-query"
-import { getProducts } from "@/api/products"
-import { qk } from "@/api/keys"
-import type { ProductListItem } from "@/types/product"
-
-import ProductCard from "@/components/products/productCard/ProductCard"
+import { getProducts, qk } from "@/api"
+import type { ProductListItem } from "@/types"
+import { ProductCard } from "@/components"
 import {
   Page,
   HeaderBar,

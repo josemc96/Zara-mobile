@@ -1,7 +1,7 @@
 import { useAppSelector } from "@/store/hooks"
-import { selectCartItems } from "@/features/cart/cartSlice"
+import { selectCartItems } from "@/features"
 import { CartHeader, CartPageContainer, CartTitle } from "./CartPage.styles"
-import CartProductCard from "@/components/cart/cartProductCard/CartProductCard"
+import { CartProductCard } from "@/components"
 
 export default function CartPage() {
   const items = useAppSelector(selectCartItems)

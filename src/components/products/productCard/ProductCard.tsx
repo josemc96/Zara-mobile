@@ -1,6 +1,6 @@
 // import { Link } from "react-router-dom";
-import { ProductCardProps } from "@/types/product"
-import { formatEUR } from "@/utils/money"
+import { ProductCardProps } from "@/types"
+import { formatEUR } from "@/utils"
 import {
   Card,
   ClickArea,

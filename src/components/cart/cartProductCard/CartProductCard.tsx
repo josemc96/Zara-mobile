@@ -1,6 +1,6 @@
 import { useAppDispatch } from "@/store/hooks"
-import { removeItem } from "@/features/cart/cartSlice"
-import { formatEUR } from "@/utils/money"
+import { removeItem } from "@/features"
+import { formatEUR } from "@/utils"
 import {
   ProductCard,
   ProductImage,

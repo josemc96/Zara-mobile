@@ -1,12 +1,16 @@
 // src/routes/Router.tsx
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { lazy, Suspense } from "react"
-import Layout from "../components/layout/Layout"
+import { Layout } from "@/components"
 import GlobalProvider from "@/GlobalProvider"
 
-const ProductsListPage = lazy(() => import("@/pages/productList/ProductsListPage"))
-const ProductDetailPage = lazy(() => import("@/pages/productDetailsPage/ProductDetailsPage"))
-const CartPage = lazy(() => import("@/pages/cartPage/CartPage"))
+const ProductsListPage = lazy(() =>
+  import("@/pages").then((module) => ({ default: module.ProductsListPage }))
+)
+const ProductDetailPage = lazy(() =>
+  import("@/pages").then((module) => ({ default: module.ProductDetailsPage }))
+)
+const CartPage = lazy(() => import("@/pages").then((module) => ({ default: module.CartPage })))
 
 export default function AppRouter() {
   return (
