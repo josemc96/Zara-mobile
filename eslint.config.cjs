@@ -4,13 +4,12 @@ const tseslint = require("typescript-eslint")
 const globals = require("globals")
 
 module.exports = [
-  // 1) Sustituye .eslintignore
   { ignores: ["dist/**", "build/**", "node_modules/**"] },
 
-  // 2) Reglas JS para todo (si quieres solo src, limita con files)
+  // 2) Reglas JS para todo
   js.configs.recommended,
 
-  // 3) Reglas TS SOLO para .ts/.tsx  👉 evita que afecte a .js/.cjs
+  // 3) Reglas TS SOLO para .ts/.tsx
   ...tseslint.configs.recommended.map((cfg) => ({
     ...cfg,
     files: ["**/*.ts", "**/*.tsx"],
@@ -24,12 +23,10 @@ module.exports = [
       sourceType: "module",
       globals: { ...globals.browser, ...globals.es2021 },
     },
-    rules: {
-      // tus reglas de app
-    },
+    rules: {},
   },
 
-  // 5) Archivos de configuración en Node (permitir require, __dirname, etc.)
+  // 5) Archivos de configuración en Node
   {
     files: ["eslint.config.{js,cjs}", "webpack.config.{js,cjs,mjs}", "**/*.config.{js,cjs,mjs}"],
     languageOptions: {
@@ -38,7 +35,7 @@ module.exports = [
       globals: { ...globals.node },
     },
     rules: {
-      "@typescript-eslint/no-require-imports": "off", // permite require()
+      "@typescript-eslint/no-require-imports": "off",
     },
   },
 ]
