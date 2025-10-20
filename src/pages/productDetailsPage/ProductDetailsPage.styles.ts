@@ -16,12 +16,10 @@ export const BackButton = styled(Link)`
   font-size: 14px;
   font-weight: 300;
 
-  /* Hidden only in tablet */
   ${media.md`
     display: none;
   `}
 
-  /* Visible again in desktop */
   ${media.lg`
     display: flex;
     max-width: 1200px;

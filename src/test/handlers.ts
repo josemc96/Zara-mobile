@@ -1,10 +1,8 @@
 import { http, HttpResponse, delay } from "msw"
 
-// Usa los .env reales o por defecto
 const API = process.env.API_URL || "https://prueba-tecnica-api-tienda-moviles.onrender.com"
 
 export const handlers = [
-  // LISTADO: exige x-api-key y filtra por ?q
   http.get(`${API}/products`, async ({ request }) => {
     const url = new URL(request.url)
     const q = (url.searchParams.get("q") || "").toLowerCase()
@@ -29,7 +27,6 @@ export const handlers = [
     return HttpResponse.json({ items, total: items.length })
   }),
 
-  // DETALLE: devuelve esquema completo para id=1, y 404 para otros
   http.get(`${API}/products/:id`, async ({ params }) => {
     if (params.id === "1") {
       return HttpResponse.json({
@@ -71,9 +68,8 @@ export const handlers = [
     return new HttpResponse("Not found", { status: 404 })
   }),
 
-  // ENDPOINT LENTO para probar timeout (opcional)
   http.get(`${API}/__slow`, async () => {
-    await delay(9000) // > 8000ms de timeout del wrapper
+    await delay(9000)
     return HttpResponse.json({ ok: true })
   }),
 ]

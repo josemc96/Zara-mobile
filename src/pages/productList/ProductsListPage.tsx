@@ -68,7 +68,6 @@ export default function ProductsListPage() {
           ? data.slice(0, 20).map((p, i) => (
               <Cell key={`${p.id}-${i}`}>
                 {" "}
-                {/* evita colisión si llegan ids duplicados */}
                 <ProductCard
                   id={p.id}
                   brand={p.brand}

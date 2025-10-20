@@ -13,7 +13,6 @@ import type { CartFooterMobileProps } from "../../../types/CartFooter.types"
 export default function CartFooterMobile({ total, hasItems }: CartFooterMobileProps) {
   return (
     <Footer>
-      {/* Total at the top */}
       {hasItems && (
         <TotalSection>
           <TotalLabel>Total</TotalLabel>
@@ -21,7 +20,6 @@ export default function CartFooterMobile({ total, hasItems }: CartFooterMobilePr
         </TotalSection>
       )}
 
-      {/* Two buttons below */}
       <ButtonsRow>
         <ContinueShoppingButton to="/">Continue Shopping</ContinueShoppingButton>
         {hasItems && <PayButton>Pay</PayButton>}

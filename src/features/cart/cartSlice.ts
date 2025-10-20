@@ -2,7 +2,7 @@ import { createSlice, PayloadAction, createSelector } from "@reduxjs/toolkit"
 
 export type CartItem = {
   productId: string
-  variantId: string // productId__color__capacity
+  variantId: string
   name: string
   brand: string
   color: string
@@ -13,7 +13,7 @@ export type CartItem = {
 }
 
 export type CartState = {
-  items: Record<string, CartItem> // key = variantId
+  items: Record<string, CartItem>
 }
 
 const initialState: CartState = { items: {} }
@@ -56,7 +56,6 @@ const cartSlice = createSlice({
 
 export const { addItem, removeItem, setQty } = cartSlice.actions
 
-// Memoized selectors to prevent unnecessary re-renders
 export const selectCartItems = createSelector(
   [(state: { cart: CartState }) => state.cart.items],
   (items) => Object.values(items)

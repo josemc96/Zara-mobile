@@ -1,6 +1,5 @@
 import { request, HttpError } from "@/api/http"
 
-// Mock fetch globally
 global.fetch = jest.fn()
 
 describe("request() wrapper", () => {
@@ -36,7 +35,6 @@ describe("request() wrapper", () => {
       text: jest.fn().mockResolvedValue("Not found"),
     }
 
-    // Mock the response for both calls
     ;(global.fetch as jest.Mock).mockResolvedValue(mockResponse)
 
     await expect(request("/products/999999")).rejects.toBeInstanceOf(HttpError)

@@ -1,7 +1,6 @@
 import React from "react"
 import { createRoot } from "react-dom/client"
 import AppRouter from "./routes/Router"
-// import { GlobalStyle } from './components/style/generalStyle';
 
 const container = document.getElementById("root")
 if (!container) {

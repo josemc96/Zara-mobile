@@ -13,7 +13,6 @@ export const Footer = styled.footer`
   z-index: 100;
   box-sizing: border-box;
 
-  /* Mobile footer - visible only on mobile */
   &:first-of-type {
     display: flex;
     flex-direction: column;
@@ -24,7 +23,6 @@ export const Footer = styled.footer`
     `}
   }
 
-  /* Desktop footer - hidden on mobile */
   &:last-of-type {
     display: none;
     flex-direction: row;
@@ -55,12 +53,10 @@ export const ContinueShoppingButton = styled(Link)`
   transition: all 160ms ease;
   white-space: nowrap;
 
-  /* Mobile: equal width in buttons row */
   footer:first-of-type & {
     flex: 1;
   }
 
-  /* Desktop: auto width */
   footer:last-of-type & {
     width: auto;
     padding: 12px 24px;
@@ -78,13 +74,11 @@ export const TotalSection = styled.div`
   align-items: center;
   gap: 8px;
 
-  /* Mobile: centered, full width */
   footer:first-of-type & {
     justify-content: center;
     width: 100%;
   }
 
-  /* Desktop: left aligned, auto width */
   footer:last-of-type & {
     justify-content: flex-start;
     gap: 16px;
@@ -98,7 +92,6 @@ export const ButtonsRow = styled.div`
   gap: 8px;
   width: 100%;
 
-  /* Only visible on mobile */
   footer:first-of-type & {
     display: flex;
   }
@@ -147,12 +140,10 @@ export const PayButton = styled.button`
   transition: all 160ms ease;
   white-space: nowrap;
 
-  /* Mobile: equal width in buttons row */
   footer:first-of-type & {
     flex: 1;
   }
 
-  /* Desktop: auto width */
   footer:last-of-type & {
     padding: 12px 80px;
     font-size: 16px;

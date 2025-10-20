@@ -76,16 +76,13 @@ export const Grid = styled.div`
   gap: 0;
   padding: 0 16px;
 
-  /* 1 columna en móvil */
   grid-template-columns: repeat(1, minmax(0, 1fr));
 
-  /* 2 columnas en tablet (≥394px) */
   ${media.md`
     padding: 0 40px;
     grid-template-columns: repeat(2, minmax(0, 1fr));
   `}
 
-  /* 5 columnas en desktop (≥834px) */
   ${media.lg`
     padding: 0 100px;
     grid-template-columns: repeat(5, minmax(0, 1fr));
@@ -93,7 +90,6 @@ export const Grid = styled.div`
 `
 
 export const Cell = styled.div`
-  /* cada tarjeta ocupa 1 columna en todos los tamaños */
   grid-column: span 1;
 `
 

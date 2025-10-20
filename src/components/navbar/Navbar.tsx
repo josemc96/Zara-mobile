@@ -13,14 +13,12 @@ export default function Navbar({ isCartPage = false }: NavbarProps) {
   return (
     <Bar>
       <Inner>
-        {/* Izquierda: Home */}
         <Link to="/">
           <LeftLink>
             <img src="/image/mbstIcon.png" alt="MBST" width="74" height="24" />
           </LeftLink>
         </Link>
 
-        {/* Derecha: Cart con contador */}
         {!isCartPage && (
           <Link to="/cart" aria-label={`Carrito (${count})`}>
             <RightLink>

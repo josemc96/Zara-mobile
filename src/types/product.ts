@@ -10,14 +10,14 @@ export interface Specs {
 }
 
 export interface ColorOption {
-  name: string // p.ej. "black"
-  hexCode: string // p.ej. "#000000"
-  imageUrl: string // imagen específica de ese color
+  name: string
+  hexCode: string
+  imageUrl: string
 }
 
 export interface StorageOption {
-  capacity: string // p.ej. "128GB"
-  price: number // precio final para esa capacidad (NO delta)
+  capacity: string
+  price: number
 }
 
 export interface SimilarProduct {
@@ -28,7 +28,6 @@ export interface SimilarProduct {
   imageUrl: string
 }
 
-// Detalle de producto
 export interface Product {
   id: string
   brand: string
@@ -38,12 +37,10 @@ export interface Product {
   rating: number
   specs: Specs
   colorOptions: ColorOption[]
-  storageOptions: StorageOption[] // ojo: price final, no incrementos
-  similarProducts: SimilarProduct[] // ya viene en el detalle
+  storageOptions: StorageOption[]
+  similarProducts: SimilarProduct[]
 }
 
-// Para el listado, muchas APIs devuelven un subconjunto.
-// Si el listado de tu /products devuelve objetos “similares” a SimilarProduct:
 export interface ProductListItem {
   id: string
   brand: string
@@ -60,7 +57,7 @@ export type ProductCardProps = Pick<
   ProductListItem,
   "id" | "brand" | "name" | "basePrice" | "imageUrl"
 > & {
-  imageUrl: string // si el listado no la trae, la añades aquí
+  imageUrl: string
   onClick?: () => void
 }
 

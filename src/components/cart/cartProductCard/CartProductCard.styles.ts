@@ -1,4 +1,3 @@
-// CartProductCard.styles.ts
 import styled from "styled-components"
 import { media } from "@/styles/media"
 
@@ -10,14 +9,12 @@ export const ProductCard = styled.article`
   margin-bottom: 24px;
   width: 100%;
 
-  /* Tablet: dos columnas, la primera reserva espacio generoso a la imagen */
   ${media.md`
     grid-template-columns: 200px 1fr;
     gap: 16px;
     padding: 16px;
   `}
 
-  /* Desktop: imagen más protagonista, sin width/height fijos en la card */
   ${media.lg`
     grid-template-columns: 260px 1fr;
     gap: 40px;
@@ -28,8 +25,8 @@ export const ProductCard = styled.article`
 
 export const ProductImage = styled.img`
   width: 100%;
-  height: auto; /* Mantén proporción real de la imagen */
-  aspect-ratio: 1 / 1; /* Opcional: la hace cuadrada de forma responsiva */
+  height: auto;
+  aspect-ratio: 1 / 1;
   object-fit: contain;
   justify-self: center;
 

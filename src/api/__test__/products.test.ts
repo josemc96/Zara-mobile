@@ -1,6 +1,5 @@
 import { getProducts, getProduct } from "@/api/products"
 
-// Mock the http module
 jest.mock("@/api/http", () => ({
   request: jest.fn(),
 }))
@@ -14,13 +13,11 @@ describe("services: products", () => {
   })
 
   test("getProducts aplica q y limit", async () => {
-    // Mock response for empty query - API returns array directly
     mockRequest.mockResolvedValueOnce([
       { id: "1", brand: "Google", name: "Pixel 8", basePrice: 699, imageUrl: "pixel.png" },
       { id: "2", brand: "Apple", name: "iPhone 15", basePrice: 999, imageUrl: "iphone.png" },
     ])
 
-    // Mock response for "pixel" query - API returns array directly
     mockRequest.mockResolvedValueOnce([
       { id: "1", brand: "Google", name: "Pixel 8", basePrice: 699, imageUrl: "pixel.png" },
     ])

@@ -11,21 +11,17 @@ export const Bar = styled.header`
 `
 
 export const Inner = styled.div`
-  /* medidas de Figma */
-  height: 80px; /* Fixed(80px) */
+  height: 80px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-  /* centrado del contenido + paddings responsivos
-     (vienen del GridProvider) */
   max-width: var(--container-max);
   margin: 0 auto;
   padding-left: var(--page-padding-x);
   padding-right: var(--page-padding-x);
 `
 
-/* enlaces simples; sustituye por iconos cuando quieras */
 export const LeftLink = styled.span`
   font-size: 14px;
   letter-spacing: 0.02em;

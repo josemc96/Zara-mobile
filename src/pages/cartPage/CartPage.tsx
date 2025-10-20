@@ -16,12 +16,10 @@ export default function CartPage() {
 
   return (
     <CartPageContainer>
-      {/* 1. Cart Counter */}
       <CartHeader>
         <CartTitle>CART ({items.length})</CartTitle>
       </CartHeader>
 
-      {/* 2. Product Info Section */}
       {items.map((it) => (
         <CartProductCard
           key={it.variantId}

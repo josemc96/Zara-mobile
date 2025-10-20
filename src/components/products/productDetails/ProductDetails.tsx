@@ -41,7 +41,6 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
 
   const handleStorageChange = (newCapacity: string) => {
     setCapacity(newCapacity)
-    // If no color is selected yet, select the first color
     if (!color && product.colorOptions && product.colorOptions.length > 0) {
       setColor(product.colorOptions[0].name)
     }
@@ -49,7 +48,6 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
 
   const handleColorChange = (newColor: string) => {
     setColor(newColor)
-    // If no capacity is selected yet, select the first capacity
     if (!capacity && product.storageOptions && product.storageOptions.length > 0) {
       setCapacity(product.storageOptions[0].capacity)
     }

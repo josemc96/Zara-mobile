@@ -8,7 +8,6 @@ import { GridProvider } from "@/styles/grid"
 
 type Props = {
   children: React.ReactNode
-  /** Mostrar React Query Devtools (por defecto solo en dev) */
   devtools?: boolean
 }
 
